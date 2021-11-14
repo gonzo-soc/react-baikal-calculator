@@ -1,0 +1,138 @@
+/* Define our button */
+@mixin baikal_btn_decor {
+    text-align: center;
+    font-size: 17px;
+    font-style: normal;
+}
+
+@mixin baikal_medium_btn_sz {
+    width: 132px;
+    height: 45px;
+    border-radius: 3px;
+}
+
+@mixin baikal_big_btn_sz {
+    width: 163px;
+    height: 67px;
+    border-radius: 3px;
+}
+
+@mixin baikal_wide_btn_sz {
+    width: 233px;
+    height: 55px;
+    border-radius: 5px;
+}
+
+@mixin baikal_medium_btn {
+    @include baikal_btn_decor;
+    @include baikal_medium_btn_sz;
+}
+
+@mixin baikal_big_btn {
+    @include baikal_btn_decor;
+    @include baikal_big_btn_sz;
+}
+
+@mixin baikal_wide_btn {
+    @include baikal_btn_decor;
+    @include baikal_big_btn_sz;
+}
+
+/* Define our Input and its Label */
+@mixin baikal_input_label {
+    width: 52px;
+    color: #b7b7b7;
+    font-size: 15px;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.2px;
+}
+
+@mixin baikal_input_active {
+    color: #606f7a;
+}
+
+@mixin baikal_input_disabled {
+    color: #b7b7b7;
+}
+
+@mixin baikal_input_decor {
+    background-color: #ffffff;
+    outline: none;
+    border: none;
+
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.2px;
+    line-height: 15px;
+    text-align: left;
+
+    /* XS [0; 576)*/
+    @media screen and (max-width: 575px) {
+    }
+
+    /* Small [576; 768) */
+    @media screen and (min-width: 576px) {
+    }
+
+    @media screen and (max-width: 768px) {
+
+    }
+
+    /* Medium [768; 992) */
+    @media screen and (min-width: 768px) {
+
+    }
+
+    /* Large [992; 1200) */
+    @media screen and (min-width: 992px) {
+
+    }
+
+    /* XLarge [1200; 1400) */
+    @media screen and (min-width: 1200px) {
+
+    }
+
+    /* XXLarge [1400 - ...) */
+    @media screen and (min-width: 1400px) {
+        font-size: 15px;
+    }
+}
+
+@mixin baikal_input_sz {
+    width: 60%;
+    min-width: 69px;
+    height: 67px;
+
+    /* XS [0; 576)*/
+    @media screen and (max-width: 575px) {
+    }
+
+    /* Small [576; 768) */
+    @media screen and (min-width: 576px) {
+    }
+
+    /* Medium [768; 992) */
+    @media screen and (min-width: 768px) {
+    }
+
+    /* Large [992; 1200) */
+    @media screen and (min-width: 992px) {
+    }
+
+    /* XLarge [1200; 1400) */
+    @media screen and (min-width: 1200px) {
+    }
+
+    /* XXLarge [1400 - ...) */
+    @media screen and (min-width: 1400px) {
+    }
+}
+
+@mixin baikal_input {
+    @include baikal_input_sz;
+    @include baikal_input_decor;
+}

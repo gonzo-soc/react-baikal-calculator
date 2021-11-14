@@ -1,0 +1,23 @@
+.home {
+    width: 100%;
+    flex-grow: 1;
+
+    &__header {
+        padding-top: 156px;
+        margin-left: 97px;
+
+        &__title {
+            /* Style for "Рассчитайт" */
+            width: 654px;
+            height: 129px;
+            color: #606f7a;
+            font-family: OpenSans;
+            font-size: 48px;
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing: -1px;
+            line-height: 64px;
+            text-align: left;
+        }
+    }
+}

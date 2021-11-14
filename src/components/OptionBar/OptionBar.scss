@@ -1,0 +1,99 @@
+@import "../../styles/sass/mixins";
+
+.baikal_option_bar {
+  width: 50vw;
+  max-width: 792px;
+  margin-left: 97px;
+  padding-top: 47px;
+  &__rate {
+    &__input {
+      @include baikal_input_decor;
+      @include baikal_input_disabled;
+      height: 67px;
+      text-align: center;
+      width: 100%;
+      min-width: 69px;
+    }
+
+    &__label {
+      @include baikal_input_label;
+    }
+  }
+
+  &__control {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    height: 10vh;
+    min-height: 98px;
+
+    margin-left: 12px;
+    &__btn {
+      @include baikal_big_btn;
+      box-shadow: 0 4px 40px rgba(93, 170, 255, 0.29);
+      background-color: #5daaff;
+      color: #ffffff;
+      border: none;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      &__text {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        &__right_arrow {
+          margin-left: 13px;
+        }
+      }
+    }
+  }
+}
+
+/* XS [0; 576)*/
+@media screen and (max-width: 575px) {
+}
+
+/* Small [576; 768) */
+@media screen and (min-width: 576px) {
+}
+
+@media screen and (max-width: 768px) {
+  .baikal_option_bar {
+    margin-left: 47px;
+  }
+}
+
+/* Medium [768; 992) */
+@media screen and (min-width: 768px) {
+  .baikal_option_bar {
+    width: 85vw;
+  }
+}
+
+/* Large [992; 1200) */
+@media screen and (min-width: 992px) {
+  .baikal_option_bar {
+    width: 80vw;
+  }
+}
+
+/* XLarge [1200; 1400) */
+@media screen and (min-width: 1200px) {
+  .baikal_option_bar {
+    width: 70vw;
+  }
+}
+
+/* XXLarge [1400 - ...) */
+@media screen and (min-width: 1400px) {
+  .baikal_option_bar {
+    width: 55vw;
+  }
+}
