@@ -1,23 +1,23 @@
 .header {
-    padding-top: 49px;
-    margin-left: 97px;
-    
-    &__logo {
-        display: block;
+  padding-top: 49px;
+  margin-left: 97px;
 
-        /* Style for "Байкал_лог" */
-        width: 163px;
-        height: 40px;
-    }
+  &__logo {
+    display: block;
 
-    /* Кнопка связаться*/
-    &__contact_btn {
-        @include baikal_medium_btn;
-        font-family: OpenSans;
-        font-weight: 600;
-        color: #606f7a;
-        letter-spacing: 0.2px;
-        box-shadow: 0 4px 40px rgba(46, 80, 87, 0.12);
-        background-color: #ffffff;
-    }
+    /* Style for "Байкал_лог" */
+    width: 163px;
+    height: 40px;
+  }
+
+  /* Кнопка связаться*/
+  &__contact_btn {
+    @include baikal_medium_btn;
+    font-family: OpenSans;
+    font-weight: 600;
+    color: #606f7a;
+    letter-spacing: 0.2px;
+    box-shadow: 0 4px 40px rgba(46, 80, 87, 0.12);
+    background-color: #ffffff;
+  }
 }

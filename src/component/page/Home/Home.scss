@@ -1,16 +1,16 @@
 .home {
-    flex-grow: 1;
+  flex-grow: 1;
 
-    &__header {
-        padding-top: 156px;
-        margin-left: 97px;
+  &__header {
+    padding-top: 156px;
+    margin-left: 97px;
 
-        &__title {
-            @include baikal_header;
-            width: 654px;
-            font-size: 48px;
-            letter-spacing: -1px;
-            line-height: 64px;
-        }
+    &__title {
+      @include baikal_header;
+      width: 654px;
+      font-size: 48px;
+      letter-spacing: -1px;
+      line-height: 64px;
     }
+  }
 }

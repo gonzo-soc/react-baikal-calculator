@@ -1,160 +1,160 @@
 /* Defile header */
 @mixin baikal_header {
-    color: $HEADER_TEXT_COLOR;
-    font-family: OpenSans;
-    font-weight: 400;
-    font-style: normal;
-    text-align: left;
+  color: $HEADER_TEXT_COLOR;
+  font-family: OpenSans;
+  font-weight: 400;
+  font-style: normal;
+  text-align: left;
 }
 
 /* Define our button */
 @mixin baikal_btn_decor {
-    text-align: center;
-    font-size: 17px;
-    font-style: normal;
-    border: none;
-    outline: none;
+  text-align: center;
+  font-size: 17px;
+  font-style: normal;
+  border: none;
+  outline: none;
 
-    &:hover {
-        background-color: #5e93cf;
-    }
+  &:hover {
+    background-color: #5e93cf;
+  }
 }
 
 @mixin baikal_medium_btn_sz {
-    width: 132px;
-    height: 45px;
-    border-radius: 3px;
+  width: 132px;
+  height: 45px;
+  border-radius: 3px;
 }
 
 @mixin baikal_big_btn_sz {
-    width: 163px;
-    height: 67px;
-    border-radius: 3px;
+  width: 163px;
+  height: 67px;
+  border-radius: 3px;
 }
 
 @mixin baikal_tight_btn_sz {
-    width: 114px;
-    height: 53px;
-    border-radius: 5px;
+  width: 114px;
+  height: 53px;
+  border-radius: 5px;
 }
 
 @mixin baikal_wide_btn_sz {
-    width: 233px;
-    height: 55px;
-    border-radius: 5px;
+  width: 233px;
+  height: 55px;
+  border-radius: 5px;
 }
 
 @mixin baikal_medium_btn {
-    @include baikal_btn_decor;
-    @include baikal_medium_btn_sz;
+  @include baikal_btn_decor;
+  @include baikal_medium_btn_sz;
 }
 
 @mixin baikal_big_btn {
-    @include baikal_btn_decor;
-    @include baikal_big_btn_sz;
+  @include baikal_btn_decor;
+  @include baikal_big_btn_sz;
 }
 
 @mixin baikal_tight_btn {
-    @include baikal_btn_decor;
-    @include baikal_tight_btn_sz;
+  @include baikal_btn_decor;
+  @include baikal_tight_btn_sz;
 }
 
 @mixin baikal_wide_btn {
-    @include baikal_btn_decor;
-    @include baikal_big_btn_sz;
+  @include baikal_btn_decor;
+  @include baikal_big_btn_sz;
 }
 
 /* Define our Input and its Label */
 @mixin baikal_input_label {
-    width: 52px;
-    color: $INPUT_LABEL_COLOR;
-    font-size: 15px;
-    font-weight: 500;
-    font-style: normal;
-    letter-spacing: 0.2px;
+  width: 52px;
+  color: $INPUT_LABEL_COLOR;
+  font-size: 15px;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.2px;
 }
 
 @mixin baikal_input_active {
-    color: $ACTIVE_INPUT_LABEL_COLOR;
+  color: $ACTIVE_INPUT_LABEL_COLOR;
 }
 
 @mixin baikal_input_disabled {
-    color: $INPUT_LABEL_COLOR;
+  color: $INPUT_LABEL_COLOR;
 }
 
 @mixin baikal_input_decor {
-    background-color: #ffffff;
-    outline: none;
-    border: none;
+  background-color: #ffffff;
+  outline: none;
+  border: none;
 
-    font-family: Roboto;
-    font-size: 14px;
-    font-weight: 500;
-    font-style: normal;
-    letter-spacing: 0.2px;
-    line-height: 15px;
-    text-align: left;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.2px;
+  line-height: 15px;
+  text-align: left;
 
-    /* XS [0; 576)*/
-    @media screen and (max-width: 575px) {
-    }
+  /* XS [0; 576)*/
+  @media screen and (max-width: 575px) {
+  }
 
-    /* Small [576; 768) */
-    @media screen and (min-width: 576px) {
-    }
+  /* Small [576; 768) */
+  @media screen and (min-width: 576px) {
+  }
 
-    @media screen and (max-width: 768px) {
-    }
+  @media screen and (max-width: 768px) {
+  }
 
-    /* Medium [768; 992) */
-    @media screen and (min-width: 768px) {
-    }
+  /* Medium [768; 992) */
+  @media screen and (min-width: 768px) {
+  }
 
-    /* Large [992; 1200) */
-    @media screen and (min-width: 992px) {
-    }
+  /* Large [992; 1200) */
+  @media screen and (min-width: 992px) {
+  }
 
-    /* XLarge [1200; 1400) */
-    @media screen and (min-width: 1200px) {
-    }
+  /* XLarge [1200; 1400) */
+  @media screen and (min-width: 1200px) {
+  }
 
-    /* XXLarge [1400 - ...) */
-    @media screen and (min-width: 1400px) {
-        font-size: 15px;
-    }
+  /* XXLarge [1400 - ...) */
+  @media screen and (min-width: 1400px) {
+    font-size: 15px;
+  }
 }
 
 @mixin baikal_input_sz {
-    width: 60%;
-    min-width: 69px;
-    height: 67px;
+  width: 60%;
+  min-width: 69px;
+  height: 67px;
 
-    /* XS [0; 576)*/
-    @media screen and (max-width: 575px) {
-    }
+  /* XS [0; 576)*/
+  @media screen and (max-width: 575px) {
+  }
 
-    /* Small [576; 768) */
-    @media screen and (min-width: 576px) {
-    }
+  /* Small [576; 768) */
+  @media screen and (min-width: 576px) {
+  }
 
-    /* Medium [768; 992) */
-    @media screen and (min-width: 768px) {
-    }
+  /* Medium [768; 992) */
+  @media screen and (min-width: 768px) {
+  }
 
-    /* Large [992; 1200) */
-    @media screen and (min-width: 992px) {
-    }
+  /* Large [992; 1200) */
+  @media screen and (min-width: 992px) {
+  }
 
-    /* XLarge [1200; 1400) */
-    @media screen and (min-width: 1200px) {
-    }
+  /* XLarge [1200; 1400) */
+  @media screen and (min-width: 1200px) {
+  }
 
-    /* XXLarge [1400 - ...) */
-    @media screen and (min-width: 1400px) {
-    }
+  /* XXLarge [1400 - ...) */
+  @media screen and (min-width: 1400px) {
+  }
 }
 
 @mixin baikal_input {
-    @include baikal_input_sz;
-    @include baikal_input_decor;
+  @include baikal_input_sz;
+  @include baikal_input_decor;
 }
