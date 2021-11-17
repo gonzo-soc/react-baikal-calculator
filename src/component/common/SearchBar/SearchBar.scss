@@ -1,0 +1,53 @@
+.baikal_search_bar {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+  align-items: center;
+
+  &__input {
+    display: block;
+    width: 370px;
+    height: 53px;
+
+    margin-right: 8px;
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+    background-color: #ffffff;
+
+    border: none;
+    outline: none;
+    border-radius: 3px;
+
+    padding-left: 19px;
+    padding-top: 19px;
+    padding-bottom: 14px;
+  }
+
+  ::placeholder {
+    color: $INPUT_LABEL_COLOR;
+    font-family: OpenSans;
+    font-size: 15px;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+
+    padding-top: 19px;
+    padding-bottom: 14px;
+  }
+
+  &__control {
+    &__btn {
+      @include baikal_tight_btn_sz;
+      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.15);
+      background-color: $BLUE_BUTTON_COLOR;
+      border: none;
+
+      &__text {
+        max-width: 54px;
+        width: 47%;
+        color: #ffffff;
+        font-family: OpenSans;
+        font-weight: 600;
+      }
+    }
+  }
+}

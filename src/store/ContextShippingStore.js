@@ -1,9 +1,9 @@
 import React from "react";
 import { observable, makeObservable, action } from 'mobx';
 
-import { getCoucheDictData } from "./CoucheDictData";
-import { getCityList } from "./CityListData";
-import { getCurrencyList } from "./CurrencyListData";
+import { getCoucheDictData } from "./data/CoucheDictData";
+import { getCityList } from "./data/CityListData";
+import { getCurrencyList } from "./data/CurrencyListData";
 
 import CoucheDictionaryItem from "./domain/CoucheDictionaryItem";
 import ShippingCoucheInfo from "./domain/ShippingCoucheInfo";

@@ -1,4 +1,4 @@
-@import "../../styles/sass/mixins";
+// @import "@/styles/sass/mixins";
 
 .baikal_option_bar {
   width: 50vw;
@@ -33,7 +33,7 @@
     &__btn {
       @include baikal_big_btn;
       box-shadow: 0 4px 40px rgba(93, 170, 255, 0.29);
-      background-color: #5daaff;
+      background-color: $BLUE_BUTTON_COLOR;
       color: #ffffff;
       border: none;
 

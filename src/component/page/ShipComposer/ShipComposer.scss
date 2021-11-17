@@ -1,0 +1,50 @@
+.ship_composer {
+  &__header {
+    margin-top: 97px;
+    &__container {
+      display: flex;
+      flex: 1 0 auto;
+      justify-content: space-between;
+      align-items: center;
+
+      &__title {
+        max-width: 606px;
+        width: 42.01vw;
+        color: $HEADER_TEXT_COLOR;
+        font-family: OpenSans;
+        font-size: 36px;
+        font-weight: 400;
+        font-style: normal;
+        text-align: left;
+      }
+
+      &__title:first-child {
+        padding-left: 97px;
+      }
+
+      &__title:last-child {
+        padding-right: 97px;
+      }
+    }
+  }
+
+  &__body {
+    padding-top: 41px;
+    &__search_bar {
+      padding-left: 98px;
+    }
+
+    &__content {
+      &__edit_placeholder_title {
+        max-width: 430px;
+        width: 29.86vw;
+        color: $HEADER_TEXT_COLOR;
+        font-family: OpenSans;
+        font-size: 23px;
+        font-weight: 400;
+        font-style: normal;
+        text-align: left;
+      }
+    }
+  }
+}

@@ -35,4 +35,17 @@ export default class OptionBarUIState {
 
     return sym;
   }
+
+  set setFrom(from) {
+    this.from = from;
+  }
+
+  set setTo(to) {
+    this.to = to;
+  }
+
+  set setCurrency(currency) {
+    this.currency = currency;
+  }
+
 }

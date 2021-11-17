@@ -1,16 +1,20 @@
 /** webpack.config.js */
 const path = require('path');
+const appDir = 'src';
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, 'public/dist'),
     filename: 'bundle.js'
   },
 
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     extensions: ['.js', '.jsx'],
+    alias: {
+      '@': path.resolve(appDir),
+    }
   },
 
   module: {
@@ -35,10 +39,6 @@ module.exports = {
         }]
       },
       {
-        test: /\.png|svg|jpg|gif$/,
-        use: ["file-loader"],
-      },
-      {
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
@@ -47,7 +47,21 @@ module.exports = {
           'css-loader',
           // Compiles Sass to CSS
           "sass-loader",
+
+          // load mixins and variables from index.scss (see index.jsx)
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [`${appDir}/styles/sass/_mixins.scss`, `${appDir}/styles/sass/_variables.scss`]
+            }
+          }
         ],
+      },
+
+      // use webpack5 asset loader: https://webpack.js.org/guides/asset-management/
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
       },
     ]
   }

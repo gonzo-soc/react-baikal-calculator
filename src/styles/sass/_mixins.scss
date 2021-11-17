@@ -1,8 +1,23 @@
+/* Defile header */
+@mixin baikal_header {
+    color: $HEADER_TEXT_COLOR;
+    font-family: OpenSans;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+}
+
 /* Define our button */
 @mixin baikal_btn_decor {
     text-align: center;
     font-size: 17px;
     font-style: normal;
+    border: none;
+    outline: none;
+
+    &:hover {
+        background-color: #5e93cf;
+    }
 }
 
 @mixin baikal_medium_btn_sz {
@@ -15,6 +30,12 @@
     width: 163px;
     height: 67px;
     border-radius: 3px;
+}
+
+@mixin baikal_tight_btn_sz {
+    width: 114px;
+    height: 53px;
+    border-radius: 5px;
 }
 
 @mixin baikal_wide_btn_sz {
@@ -33,6 +54,11 @@
     @include baikal_big_btn_sz;
 }
 
+@mixin baikal_tight_btn {
+    @include baikal_btn_decor;
+    @include baikal_tight_btn_sz;
+}
+
 @mixin baikal_wide_btn {
     @include baikal_btn_decor;
     @include baikal_big_btn_sz;
@@ -41,7 +67,7 @@
 /* Define our Input and its Label */
 @mixin baikal_input_label {
     width: 52px;
-    color: #b7b7b7;
+    color: $INPUT_LABEL_COLOR;
     font-size: 15px;
     font-weight: 500;
     font-style: normal;
@@ -49,11 +75,11 @@
 }
 
 @mixin baikal_input_active {
-    color: #606f7a;
+    color: $ACTIVE_INPUT_LABEL_COLOR;
 }
 
 @mixin baikal_input_disabled {
-    color: #b7b7b7;
+    color: $INPUT_LABEL_COLOR;
 }
 
 @mixin baikal_input_decor {
@@ -78,22 +104,18 @@
     }
 
     @media screen and (max-width: 768px) {
-
     }
 
     /* Medium [768; 992) */
     @media screen and (min-width: 768px) {
-
     }
 
     /* Large [992; 1200) */
     @media screen and (min-width: 992px) {
-
     }
 
     /* XLarge [1200; 1400) */
     @media screen and (min-width: 1200px) {
-
     }
 
     /* XXLarge [1400 - ...) */

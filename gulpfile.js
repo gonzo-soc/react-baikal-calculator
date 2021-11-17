@@ -10,6 +10,8 @@ const gutil = require('gulp-util');
 const notifier = require('node-notifier');
 const webpackDevConfig = require('./webpack-dev.config.js');
 const webpackProdConfig = require('./webpack-prod.config.js');
+const historyApiFallback = require('connect-history-api-fallback');
+
 const statsLog = { // для красивых логов в консоли
   colors: true,
   reasons: true
@@ -21,7 +23,8 @@ const appDir = "src";
 gulp.task("browser-sync-init", function (done) {
   browserSync.init({
     server: {
-      baseDir: publicDir
+      baseDir: publicDir,
+      middleware: [ historyApiFallback() ]
     }
   });
   done();
@@ -80,7 +83,7 @@ gulp.task("build-dev-js", (done) => {
   // webpack импортируется как обычная функция, которая первым аргументом получает конфиг из webpack.config.js
   // второй аргумент это колбэк, который вызывается по результатам работы сборки webpack
   webpack(webpackDevConfig, (err, stats) => onWebpackComplete(err, stats, done));
-}); 
+});
 
 gulp.task("build-prod-js", (done) => {
   webpack(webpackProdConfig, (err, stats) => onWebpackComplete(err, stats, done));
@@ -89,11 +92,11 @@ gulp.task("build-prod-js", (done) => {
 gulp.task("build-prod", series("build-html", "build-prod-js"));
 
 gulp.task("build-dev", series("build-html", "build-dev-js"));
-gulp.task("dev-watch", gulp.series("browser-sync-init", function () {
+gulp.task("dev-watch", gulp.series("build-dev", "browser-sync-init", function () {
   gulp
     .watch(`${appDir}/**/*.*`)
-    .on("change", gulp.series("build-dev", (path) => browserSync.reload(path)))
-    .on("add", gulp.series("build-dev", (path) => browserSync.reload(path)));
+    .on("change", gulp.series("build-dev", (path) => browserSync.reload(path, { stream: true })))
+    .on("add", gulp.series("build-dev", (path) => browserSync.reload(path, { stream: true })));
 }));
 
 gulp.watch([`${appDir}/**/*.html`], gulp.series("build-html"));

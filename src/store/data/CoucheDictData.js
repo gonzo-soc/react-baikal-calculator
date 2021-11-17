@@ -2,17 +2,17 @@ const coucheDictData = [
     {
         id: 1,
         icon: "./icons/couche.jpg",
-        name: "Audrey Almond",
+        title: "Audrey Almond",
     },
     {
         id: 2,
         icon: "./icons/couche.jpg",
-        name: "Bay Bridge",
+        title: "Bay Bridge",
     },
     {
-        id: 2,
+        id: 3,
         icon: "./icons/couche.jpg",
-        name: "Sun Set Garden",
+        title: "Sun Set Garden",
     },
 ]
 

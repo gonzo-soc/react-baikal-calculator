@@ -3,3 +3,17 @@
 @import "~bootstrap-scss/functions";
 @import "~bootstrap-scss/utilities";
 @import "~bootstrap-scss/mixins";
+
+
+/* General styles for input */
+.is_baikal_invalid_input {
+	border: 1px solid $INVALID_INPUT_COLOR;
+}
+
+.is_baikal_invalid_label {
+	&:after {
+		display: inline-block;
+		content: ' *';
+		color: $INVALID_INPUT_COLOR;
+	}
+}

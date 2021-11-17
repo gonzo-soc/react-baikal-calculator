@@ -1,8 +1,10 @@
-@import "../../styles/sass/mixins";
+@import "@/styles/sass/mixins";
 
 .baikal_dl {
   &__label {
     @include baikal_input_label;
+    width: auto;
+    max-width: 100%;
 
     &__active {
       color: #606f7a;
@@ -50,6 +52,10 @@
       top: 0;
       right: 16px;
       bottom: 0;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     .is_edit {

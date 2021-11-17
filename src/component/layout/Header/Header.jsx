@@ -1,8 +1,7 @@
 import React from 'react';
 
 import "./Header.scss";
-
-import baikalLogo from "../../styles/images/icons/header/baikal-icon@2x.svg";
+import baikalLogo from "@/styles/images/icons/header/baikal-icon@2x.svg";
 
 export default function Header() {
     return (
