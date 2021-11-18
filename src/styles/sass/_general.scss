@@ -10,61 +10,61 @@
 
 /* General styles for input */
 .is_baikal_invalid_input {
-	border: 1px solid $INVALID_INPUT_COLOR;
+  border: 1px solid $INVALID_INPUT_COLOR;
 }
 
 .is_baikal_invalid_label {
-	&:after {
-		display: inline-block;
-		content: " *";
-		color: $INVALID_INPUT_COLOR;
-	}
+  &:after {
+    display: inline-block;
+    content: " *";
+    color: $INVALID_INPUT_COLOR;
+  }
 }
 
 /* 132 * 45 (px) */
 .baikal_medium_sz_btn {
-	@include baikal_medium_btn;
+  @include baikal_medium_btn;
 }
 
 /* 163 * 67 (px) */
 .baikal_big_sz_btn {
-	@include baikal_big_btn;
+  @include baikal_big_btn;
 }
 
 /* 114 * 53 (px) */
 .baikal_tight_sz_btn {
-	@include baikal_tight_btn;
+  @include baikal_tight_btn;
 }
 
 /* 233 * 55 (px) */
 .baikal_wide_sz_btn {
-	@include baikal_wide_btn;
+  @include baikal_wide_btn;
 }
 
 /* Main content dimension boundaries */
 .baikal_main_content {
-	display: flex;
-	flex-direction: column;
-	flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
 
-	min-height: 480px;
-	max-height: 720px;
-	height: 85vh;
+  min-height: 480px;
+  max-height: 720px;
+  height: 85vh;
 
-	max-width: 100%;
-	overflow: auto;
+  max-width: 100%;
+  overflow: auto;
 }
 
 @media screen and (min-height: 990px) and (orientation: landscape) {
-	.baikal_main_content {
-		max-height: 85vh;
-		min-height: unset;
-	}
+  .baikal_main_content {
+    max-height: 85vh;
+    min-height: unset;
+  }
 }
 
 @media screen and (max-height: 720px) and (orientation: landscape) {
-	.baikal_main_content {
-		max-height: unset;
-		height: auto;
-	}
+  .baikal_main_content {
+    max-height: unset;
+    height: auto;
+  }
 }
