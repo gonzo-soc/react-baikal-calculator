@@ -61,7 +61,7 @@
 
 @mixin baikal_wide_btn {
   @include baikal_btn_decor;
-  @include baikal_big_btn_sz;
+  @include baikal_wide_btn_sz;
 }
 
 /* Define our Input and its Label */
@@ -157,4 +157,10 @@
 @mixin baikal_input {
   @include baikal_input_sz;
   @include baikal_input_decor;
+}
+
+@mixin baikal_limited_title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

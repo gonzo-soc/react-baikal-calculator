@@ -1,0 +1,116 @@
+.baikal_counter {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 100%;
+  margin: auto;
+
+  &__label {
+    text-align: left;
+    width: 3.8vw;
+    min-width: 55px;
+    max-width: 62px;
+    color: #606f7a;
+    font-family: OpenSans;
+    font-size: 15px;
+    font-weight: 400;
+    font-style: normal;
+
+    @include baikal_limited_title;
+  }
+
+  &__panel {
+    display: flex;
+    flex: 1 0 100%;
+    justify-content: center;
+    align-items: center;
+    padding-left: 35px;
+
+    &__minus {
+      position: relative;
+      border-radius: 3px;
+      left: 3px;
+      background-color: #f8faff;
+      &:after {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 15px;
+        height: 2px;
+        top: 50%;
+        background-color: $BLUE_BUTTON_COLOR;
+        transform: translateY(-50%);
+        position: absolute;
+        transition: 3s all ease;
+
+        &:hover {
+          background-color: #5e93cf;
+        }
+      }
+    }
+
+    &__score {
+      background-color: #ffffff;
+      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.04);
+      width: calc(3.68vw + 6px);
+    }
+
+    &__plus {
+      position: relative;
+      border-radius: 3px;
+      right: 3px;
+      background-color: #f8faff;
+
+      &:before {
+        position: absolute;
+        content: "";
+        display: block;
+        top: 50%;
+        width: 15px;
+        height: 2px;
+        background-color: $BLUE_BUTTON_COLOR;
+        transform: translateY(-50%);
+        transition: 3s all ease;
+
+        &:hover {
+          background-color: #5e93cf;
+        }
+      }
+      &:after {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 2px;
+        height: 15px;
+        left: 49.4%;
+        background-color: $BLUE_BUTTON_COLOR;
+        transform: translateX(-50%);
+        position: absolute;
+        transition: 3s all ease;
+
+        &:hover {
+          background-color: #5e93cf;
+        }
+      }
+    }
+  }
+}
+
+.control_box {
+  min-width: 54px;
+  max-width: 60px;
+  width: 3.68vw;
+  min-height: 54px;
+  max-height: 60px;
+  height: 3.68vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ffffff;
+  }
+}

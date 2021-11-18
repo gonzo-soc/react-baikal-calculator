@@ -1,0 +1,99 @@
+.couche_editor {
+  flex: 1 0 100%;
+  width: 100%;
+
+  &__preview {
+    border-radius: 3px;
+    margin: auto;
+  }
+
+  &__counter {
+    padding-top: 24px;
+    margin: auto;
+  }
+
+  &__input_panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding-top: 24px;
+    margin: auto;
+
+    &__input {
+      display: block;
+      margin-top: 15px;
+
+      outline: none;
+      border-radius: 3px;
+
+      padding-left: 19px;
+      padding-top: 19px;
+      padding-bottom: 14px;
+
+      /* Style for "Rectangle" */
+      min-width: 319px;
+      max-width: 420px;
+      width: 22.15vw;
+      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+      border-radius: 3px;
+      border-color: transparent;
+      background-color: #ffffff;
+    }
+
+    &__input:first-child {
+      margin-top: 0;
+    }
+
+    ::placeholder {
+      color: $INPUT_LABEL_COLOR;
+      font-family: OpenSans;
+      font-size: 15px;
+      font-weight: 400;
+      font-style: normal;
+      text-align: left;
+
+      padding-top: 19px;
+      padding-bottom: 14px;
+    }
+  }
+
+  &__btn_panel {
+    display: flex;
+    justify-content: flex-start;
+    margin: auto;
+    margin-top: 36px;
+    width: auto;
+
+    &__btn_wrapper {
+      margin-right: 9px;
+    }
+
+    &__btn_wrapper:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__btn {
+    @include baikal_wide_btn;
+    background-color: $BLUE_BUTTON_COLOR;
+  }
+
+  &__btn_label {
+    color: #fcfdff;
+    font-family: OpenSans;
+    font-size: 17px;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
+    max-width: 70%;
+    @include baikal_limited_title;
+  }
+}
+
+.content_panel_sz {
+  min-width: 404px;
+  max-width: 480px;
+  width: 28.06vw;
+}

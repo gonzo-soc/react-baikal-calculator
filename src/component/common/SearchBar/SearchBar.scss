@@ -1,7 +1,7 @@
 .baikal_search_bar {
   display: flex;
   flex: 1 0 auto;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   &__input {
