@@ -56,31 +56,10 @@
   }
 }
 
-/* XS [0; 576)*/
-@media screen and (max-width: 575px) {
-}
-
-/* Small [576; 768) */
-@media screen and (min-width: 576px) {
-}
-
-@media screen and (max-width: 768px) {
+/* XXLarge [1400 - ...) */
+@media screen and (min-width: 1400px) {
   .baikal_option_bar {
-    margin-left: 47px;
-  }
-}
-
-/* Medium [768; 992) */
-@media screen and (min-width: 768px) {
-  .baikal_option_bar {
-    width: 85vw;
-  }
-}
-
-/* Large [992; 1200) */
-@media screen and (min-width: 992px) {
-  .baikal_option_bar {
-    width: 80vw;
+    width: 55vw;
   }
 }
 
@@ -91,9 +70,50 @@
   }
 }
 
-/* XXLarge [1400 - ...) */
-@media screen and (min-width: 1400px) {
+/* Large [992; 1200) */
+@media screen and (min-width: 992px) {
   .baikal_option_bar {
-    width: 55vw;
+    width: 80vw;
+  }
+}
+
+/* Medium [768; 992) */
+@media screen and (min-width: 768px) {
+  .baikal_option_bar {
+    width: 85vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .baikal_option_bar {
+    margin-left: 0;
+    width: 100%;
+    max-width: unset;
+
+    &__rate {
+      margin-top: 3vh;
+    }
+
+    &__control {
+      margin-top: 3.65vh;
+      &__btn {
+        margin: auto;
+        width: 100%;
+      }
+    }
+  }
+
+  .w-full {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .baikal_option_bar {
+    &__control {
+      &__btn {
+        width: 100%;
+      }
+    }
   }
 }

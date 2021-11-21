@@ -6,17 +6,12 @@ import ShippingContext from "@/store/ShippingContext";
 import { findCoucheDictItem } from "@/store/data/CoucheDictData";
 
 import CouchePreview from "@/component/layout/CouchePreview/CouchePreview";
-import BaikalCounter from "@/component/common/BaikalCounter/BaikalCounter";
-import BaikalButton from "@/component/common/BaikalButton/BaikalButton";
+import Counter from "@/component/common/Counter/Counter";
+import Button from "@/component/common/Button/Button";
 
 export default function CoucheEditor(props) {
   const { id } = props;
   const coucheDictItem = findCoucheDictItem(id);
-
-  const btnAdditionStyleClassList = {
-    'btn': 'couche_editor__btn',
-    'label': 'couche_editor__btn_label',
-  }
 
   const [count, setCount] = useState(0);
   const [volume, setVolume] = useState(0);
@@ -42,7 +37,7 @@ export default function CoucheEditor(props) {
             selectCouchePreviewCallback={null} isControl={false} />
         </div>
         <div className="couche_editor__counter content_panel_sz">
-          <BaikalCounter start="0" label="Кол-во:" />
+          <Counter start="0" label="Кол-во:" />
         </div>
         <div className="couche_editor__input_panel content_panel_sz">
           <input name="input_volume" className="couche_editor__input_panel__input" type="text" placeholder="Объем, м3" />
@@ -52,16 +47,20 @@ export default function CoucheEditor(props) {
         </div>
         <div className="couche_editor__btn_panel content_panel_sz">
           <div className="couche_editor__btn_panel__btn_wrapper">
-            <BaikalButton label="Сбросить"
-              parentComponentClickHandle={resetShippingInfo}
-              parentCallbackArgument={{}}
-              additionStyleClassList={btnAdditionStyleClassList} />
+            <Button label="Сбросить"
+              onClickHandle={resetShippingInfo}
+              onClickHandleArg={{}}
+              additionClassname="couche_editor__btn">
+              <span className="couche_editor__btn_label">Сбросить</span>
+            </Button>
           </div>
           <div className="couche_editor__btn_panel__btn_wrapper">
-            <BaikalButton label="Добавить"
-              parentComponentClickHandle={addShippingInfo}
-              parentCallbackArgument={{}}
-              additionStyleClassList={btnAdditionStyleClassList} />
+            <Button label="Добавить"
+              onClickHandle={addShippingInfo}
+              onClickHandleArg={{}}
+              additionClassname="couche_editor__btn">
+              <span className="couche_editor__btn_label">Добавить</span>
+            </Button>
           </div>
         </div>
       </div>

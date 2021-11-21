@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import "@/styles/sass/index.scss";
+// import "@/styles/css/social-icons.css";
 
 ReactDOM.render(
   <Router>

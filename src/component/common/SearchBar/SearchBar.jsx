@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
+import Button from "@/component/common/Button/Button";
+
 import "./SearchBar.scss";
 
 export default function SearchBar(props) {
-  const { searchCriteriaChangeDispatcher } = props;
+  const { searchCriteriaSubmitHandler } = props;
   const [searchCriteria, setSearchCriteria] = useState('');
 
   return (
@@ -15,15 +17,15 @@ export default function SearchBar(props) {
       } />
       <div className="col-md-3 px-0">
         <div className="baikal_search_bar__control">
-          <button className="baikal_search_bar__control__btn" onClick={
-            () => {
-              searchCriteriaChangeDispatcher(searchCriteria);
+          <Button
+            onClickHandle={
+              () => {
+                searchCriteriaSubmitHandler(searchCriteria);
+              }
             }
-          }>
-            <span className="baikal_search_bar__control__btn__text">
-              Поиск
-                        </span>
-          </button>
+            additionClassname="baikal_search_bar__control__btn">
+            <span className="baikal_search_bar__control__btn__text">Поиск</span>
+          </Button>
         </div>
       </div>
     </div>

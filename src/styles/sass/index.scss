@@ -1,13 +1,7 @@
 @import "variables";
 @import "mixins";
 @import "general";
-@import "media";
 @import "fonts";
-
-* {
-  font-family: "Roboto", sans-serif;
-  box-sizing: border-box;
-}
 
 html {
   width: 100%;
@@ -43,10 +37,12 @@ body {
       display: flex;
       flex: 1 0 auto;
       flex-direction: column;
+      * {
+        font-family: "Roboto", sans-serif;
+        box-sizing: border-box;
+      }
     }
   }
 }
 
-.is_home_active {
-  background: url("../images/background-images/home-pg/home-illustration-bg.svg") bottom (right/80%) no-repeat;
-}
+@import "media";

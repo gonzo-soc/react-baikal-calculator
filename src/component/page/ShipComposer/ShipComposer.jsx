@@ -40,10 +40,10 @@ const ShipComposer = observer(() => {
 
   const getCoucheEditItem = () => {
     if (selectedCouchePreview === null) {
-      return (<span className="ship_composer__body__content__editor_wrapper__editor__placeholder">
+      return (<span className="ship_composer__editor__content__placeholder">
         Вы не выбрали пока ни одного элемента.</span>);
     } else {
-      return (<CoucheEditor id={selectedCouchePreview['id']}/>);
+      return (<CoucheEditor id={selectedCouchePreview['id']} />);
     }
   };
 
@@ -55,43 +55,41 @@ const ShipComposer = observer(() => {
   }
 
   return (
-    <div className="ship_composer baikal_main_content">
-      <header className="ship_composer__header">
-        <div className="ship_composer__header__container">
-          <h2 className="ship_composer__header__container__title">
-            Выберите мебель, которую нужно перевезти
-                </h2>
-          <h2 className="ship_composer__header__container__title">
-            Затем заполните следующие поля выбранного элемента:
-                </h2>
-        </div>
-      </header>
-      <main className="ship_composer__body">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-6 pl-0">
-              <section className="ship_composer__body__search_bar">
-                <SearchBar searchCriteriaChangeDispatcher={
+    <main className="ship_composer baikal_main_content">
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-6 pl-0">
+            <section className="ship_composer__search_bar">
+              <h2 className="ship_composer__search_bar__header">
+                Выберите мебель, которую нужно перевезти
+              </h2>
+              <div className="ship_composer__search_bar__control">
+                <SearchBar searchCriteriaSubmitHandler={
                   (searchCriteria) => {
                     setCouchePreviewList(getFilteredCouchePreviewList(searchCriteria))
                   }
                 } />
-                <div className="ship_composer__body__content__couche_preview_list">
-                  <div className="ship_composer__body__content__couche_preview_list__wrapper">
-                    {getCouchePreviewList()}
-                  </div>
+              </div>
+              <div className="ship_composer__search_bar__result_wrapper">
+                <div className="ship_composer__search_bar__result_wrapper__result">
+                  {getCouchePreviewList()}
                 </div>
-              </section>
-            </div>
-            <div className="col-md-6 ship_composer__body__content__editor_wrapper">
-              <div className="ship_composer__body__content__editor_wrapper__editor">
+              </div>
+            </section>
+          </div>
+          <div className="col-md-6">
+            <section className="ship_composer__editor">
+              <h2 className="ship_composer__editor__header">
+                Затем заполните следующие <br />поля выбранного элемента:
+              </h2>
+              <div className="ship_composer__editor__content">
                 {getCoucheEditItem()}
               </div>
-            </div>
+            </section>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 });
 

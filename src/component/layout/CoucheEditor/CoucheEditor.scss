@@ -1,15 +1,18 @@
 .couche_editor {
   flex: 1 0 100%;
   width: 100%;
+  padding-top: 41px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 
   &__preview {
     border-radius: 3px;
-    margin: auto;
   }
 
   &__counter {
     padding-top: 24px;
-    margin: auto;
   }
 
   &__input_panel {
@@ -19,7 +22,6 @@
     justify-content: center;
 
     padding-top: 24px;
-    margin: auto;
 
     &__input {
       display: block;
@@ -62,7 +64,6 @@
   &__btn_panel {
     display: flex;
     justify-content: flex-start;
-    margin: auto;
     margin-top: 36px;
     width: auto;
 

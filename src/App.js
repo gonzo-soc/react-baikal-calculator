@@ -24,7 +24,7 @@ function App() {
   }
 
   return (
-    <div className={isHomeUrlActive() ? "app is_home_active" : "app"}>
+    <div className="app">
       <ContextShippingStore>
         <Header />
         <Routes>

@@ -1,93 +1,85 @@
 .ship_composer {
-  &__header {
-    padding-top: 67px;
-    &__container {
-      display: flex;
-      flex: 1 0 auto;
-      justify-content: space-between;
-      align-items: center;
+  padding-top: 41px;
+  padding-bottom: 86px;
 
-      &__title {
-        max-width: 606px;
-        width: 42.01vw;
-        color: $HEADER_TEXT_COLOR;
-        font-family: OpenSans;
-        font-size: 36px;
-        font-weight: 400;
-        font-style: normal;
-        text-align: left;
-      }
+  &__search_bar {
+    padding-left: 98px;
 
-      &__title:first-child {
-        padding-left: 97px;
-      }
+    &__header {
+      max-width: 606px;
+      width: 42.01vw;
+      color: $HEADER_TEXT_COLOR;
+      font-family: OpenSans;
+      font-size: 36px;
+      font-weight: 400;
+      font-style: normal;
+      text-align: left;
+      margin: 0 auto 0 0;
+    }
 
-      &__title:last-child {
-        padding-right: 97px;
+    &__control {
+      padding-top: 41px;
+    }
+
+    &__result_wrapper {
+      display: block;
+      min-height: 434px;
+      height: 47.5vh;
+      padding-top: 58px;
+
+      &__result {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 100%;
+        min-height: 0;
+        height: 100%;
+        max-height: 100%;
+        overflow: auto;
       }
     }
   }
 
-  &__body {
-    padding-top: 41px;
-    padding-bottom: 86px;
-    &__search_bar {
-      padding-left: 98px;
+  &__editor {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    height: 100%;
+    align-items: center;
+
+    padding-left: 143px;
+
+    &__header {
+      width: auto;
+      max-width: 100%;
+      color: $HEADER_TEXT_COLOR;
+      font-family: OpenSans;
+      font-size: 36px;
+      font-weight: 400;
+      font-style: normal;
+      text-align: left;
+
+      padding-right: 97px;
+      @include baikal_limited_title;
     }
 
     &__content {
-      padding-left: 98px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex: 1 0 auto;
+      text-align: center;
+      width: 100%;
 
-      &__editor_wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 99px;
-
-        &__editor {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          flex: 1 0 100%;
-          text-align: center;
-          height: 100%;
-
-          &__placeholder {
-            max-width: 430px;
-            width: 29.86vw;
-            color: $HEADER_TEXT_COLOR;
-            font-family: OpenSans;
-            font-size: 23px;
-            font-weight: 400;
-            font-style: normal;
-            text-align: left;
-          }
-        }
-      }
-
-      &__couche_preview_list {
-        display: block;
-        min-height: 434px;
-        height: 47.5vh;
-
-        padding-top: 58px;
-
-        &__wrapper {
-          display: flex;
-          flex-direction: column;
-          flex: 1 0 100%;
-          min-height: 0;
-          height: 100%;
-          max-height: 100%;
-          overflow: auto;
-        }
-      }
-
-      &__couche_editor {
-        display: flex;
-        flex-direction: column;
-        flex: 1 0 100%;
+      &__placeholder {
+        max-width: 430px;
+        width: 29.86vw;
+        color: $HEADER_TEXT_COLOR;
+        font-family: OpenSans;
+        font-size: 23px;
+        font-weight: 400;
+        font-style: normal;
+        text-align: left;
       }
     }
   }

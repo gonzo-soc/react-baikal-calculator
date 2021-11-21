@@ -1,6 +1,17 @@
 .home {
   flex-grow: 1;
 
+  &__bg_img {
+    display: block;
+    z-index: 0;
+    width: 80vw;
+
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    object-fit: cover;
+  }
+
   &__header {
     padding-top: 156px;
     margin-left: 97px;
@@ -11,6 +22,36 @@
       font-size: 48px;
       letter-spacing: -1px;
       line-height: 64px;
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .home {
+    &__header {
+      &__title {
+        font-size: calc(32px + 1.5vw);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .home {
+    &__bg_img {
+      display: none;
+    }
+
+    padding: 0 4vw;
+    &__header {
+      margin-left: 0;
+      padding-top: 5vh;
+      &__title {
+        font-size: calc(28px + 1vw);
+        line-height: 40px;
+        max-width: 100%;
+        width: auto;
+      }
     }
   }
 }

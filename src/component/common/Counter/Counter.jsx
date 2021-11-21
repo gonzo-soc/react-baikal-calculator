@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import "./BaikalCounter.scss";
+import "./Counter.scss";
 
 export default function BaikalCounter(props) {
   const { label, start } = props;

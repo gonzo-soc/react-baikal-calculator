@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import "./DataList.scss";
+import downArrowSvg from "@/styles/images/icons/common/datalist/down_arrow.svg";
+import classNames from 'classnames';
 
 export default class DataList extends Component {
   constructor(props) {
@@ -80,7 +82,7 @@ export default class DataList extends Component {
         isEditing: false,
         isOpened: false,
       });
-      this.props.attributeChangeDispatcher(newShowItemList[0]);
+      this.props.attributeChangeHandler(newShowItemList[0]);
     }
     event.stopPropagation();
   }
@@ -108,38 +110,32 @@ export default class DataList extends Component {
   }
 
   render() {
-    const { isOpened, isEditing} = this.state;
+    const { isOpened, isEditing } = this.state;
     const isValid = this.props.isValid;
-    let inputWrapperStyleClass = 'baikal_dl__input_wrapper';
-    if (!isValid) {
-      inputWrapperStyleClass += ' is_baikal_invalid_input';
-    }
 
-    let inputInnerWrapperStyleClass = "baikal_dl__input_wrapper__input_inner_wrapper";
-    if (isOpened) {
-      inputInnerWrapperStyleClass += " is_open";
-    }
+    const inputWrapperClassname = classNames('baikal_dl__input_wrapper', { 'is_baikal_invalid_input': !isValid });
+    const inputLabelClassname = classNames("baikal_dl__label",
+      {
+        'baikal_dl__label__active': (isEditing || isOpened),
+        'is_baikal_invalid_label': !isValid
+      });
 
-    if (isEditing) {
-      inputInnerWrapperStyleClass += " is_edit";
-    }
-
-    let inputLabelStyleClass = "baikal_dl__label";
-    if (isEditing || isOpened) {
-      inputLabelStyleClass += " baikal_dl__label__active";
-    }
-    if (!isValid) {
-      inputLabelStyleClass += " is_baikal_invalid_label";
-    }
+    const selectArrowClassname = classNames("baikal_dl__input_wrapper__input_inner_wrapper__down_arrow",
+      {
+        'up_end': (isEditing || isOpened)
+      });
 
     return (
       <div className="baikal_dl">
-        <label htmlFor={`baikal_dl__input__${this.props.label}`} className={inputLabelStyleClass}>{this.props.label}</label>
-        <div className={inputWrapperStyleClass}>
-          <div className={inputInnerWrapperStyleClass}>
+        <label htmlFor={`baikal_dl__input__${this.props.label}`} className={inputLabelClassname}>{this.props.label}</label>
+        <div className={inputWrapperClassname}>
+          <div className="baikal_dl__input_wrapper__input_inner_wrapper">
             <input name={`baikal_dl__input__${this.props.label}`} className="baikal_dl__input_wrapper__input_inner_wrapper__input" type="text" onChange={this.onChangeHandler} onBlur={this.onBlurHandler} value={this.state.selectedItem['title']} />
+
+            <img src={downArrowSvg} alt="Down Arrow"
+              className={selectArrowClassname}
+              onClick={this.onArrowClickHandler} />
           </div>
-          <div className="baikal_dl__input_wrapper__arow_placeholder" onClick={this.onArrowClickHandler}></div>
           <div className="baikal_dl__input_wrapper__border"></div>
         </div>
         <ul className="baikal_dl__content_list">

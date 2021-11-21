@@ -11,6 +11,8 @@ import "./OptionBar.scss";
 
 import DataList from "@/component/common/DataList/DataList";
 import rightArrowIcon from "@/styles/images/icons/common/right_arrow.svg";
+import Button from "@/component/common/Button/Button";
+import Tooltip from "@/component/common/Tooltip/Tooltip";
 
 const OptionBar = observer(() => {
   const store = useContext(ShippingContext);
@@ -46,10 +48,10 @@ const OptionBar = observer(() => {
     }
   }
 
-  const attributeChangeDispatcher = (name, value) => { attributeChangeCallback(name, value); }
-  const fromChangeDispatcher = (value) => attributeChangeDispatcher(attributeNameDict['from'], value);
-  const toChangeDispatcher = (value) => attributeChangeDispatcher(attributeNameDict['to'], value);
-  const currencyChangeDispatcher = (value) => attributeChangeDispatcher(attributeNameDict['currency'], value);
+  const attributeChangeHandler = (name, value) => { attributeChangeCallback(name, value); }
+  const fromChangeHandler = (value) => attributeChangeHandler(attributeNameDict['from'], value);
+  const toChangeHandler = (value) => attributeChangeHandler(attributeNameDict['to'], value);
+  const currencyChangeHandler = (value) => attributeChangeHandler(attributeNameDict['currency'], value);
 
   const validateFrom = () => {
     if (!optionBarState.from || !optionBarState.from['title'] || optionBarState.from['title'] === optionBarState.to['title']) {
@@ -96,33 +98,45 @@ const OptionBar = observer(() => {
     <div className="baikal_option_bar">
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-2 px-0">
-            <DataList label={attributeNameDict['from']} dictItemList={getCityList()} selectedItem={optionBarState.from} attributeChangeDispatcher={fromChangeDispatcher} isValid={isFromValid} />
-          </div>
-          <div className="col-md-2 px-0">
-            <DataList label={attributeNameDict['to']} dictItemList={getCityList()} selectedItem={optionBarState.to} attributeChangeDispatcher={toChangeDispatcher} isValid={isToValid} />
-          </div>
-          <div className="col-md-2 px-0">
-            <DataList label={attributeNameDict['currency']} dictItemList={getCurrencyList()} selectedItem={optionBarState.currency} attributeChangeDispatcher={currencyChangeDispatcher} isValid={isCurrencyValid} />
-          </div>
-          <div className="col-md-2 px-0">
-            <div className="baikal_option__bar__rate">
-              <label htmlFor="" className="baikal_option_bar__rate__label">
-                Курс
-                            </label>
-              <input name="baikal_dl__input" className="baikal_option_bar__rate__input" type="text" value={getCurrencyRate(optionBarState.currency)} disabled />
-            </div>
-          </div>
-
-          <div className="col-md-3 px-0">
-            <div className="baikal_option_bar__control">
-              <button className="baikal_option_bar__control__btn" onClick={() => handleNextButtonClick()}>
-                <div className="baikal_option_bar__control__btn__text">
-                  <span>Далее</span>
-                  <img src={rightArrowIcon} alt="Right arrow" className="baikal_option_bar__control__btn__text__right_arrow" />
+          <div className="col-sm-11 col-md-9 px-0 m-sm-auto">
+            <Tooltip content="Для начала заполните поля выше" position="bottom">
+              <section className="baikal_option_bar__input_panel d-flex flex-wrap">
+                <div className="col-12 col-sm-6 col-md-3 px-md-0">
+                  <DataList label={attributeNameDict['from']} dictItemList={getCityList()} selectedItem={optionBarState.from} attributeChangeHandler={fromChangeHandler} isValid={isFromValid} />
                 </div>
+                <div className="col-12 col-sm-6 col-md-3 px-md-0">
+                  <DataList label={attributeNameDict['to']} dictItemList={getCityList()} selectedItem={optionBarState.to} attributeChangeHandler={toChangeHandler} isValid={isToValid} />
+                </div>
+                <div className="col-12 col-sm-6 col-md-3 px-md-0">
+                  <DataList label={attributeNameDict['currency']} dictItemList={getCurrencyList()} selectedItem={optionBarState.currency} attributeChangeHandler={currencyChangeHandler} isValid={isCurrencyValid} />
+                </div>
+                <div className="col-12 col-sm-6 col-md-3 px-md-0">
+                  <div className="baikal_option_bar__rate">
+                    <label htmlFor="" className="baikal_option_bar__rate__label">
+                      Курс
+                            </label>
+                    <input name="baikal_dl__input" className="baikal_option_bar__rate__input" type="text" value={getCurrencyRate(optionBarState.currency)} disabled />
+                  </div>
+                </div>
+              </section>
+            </Tooltip>
+          </div>
+          <div className="col-sm-11 col-md-3 px-0">
 
-              </button>
+            <div className="baikal_option_bar__control">
+              <Tooltip content='Теперь нажмите на кнопку "Далее"'
+                additionWrapperClassname="w-full"
+                additionTargetClassname="m-sm-auto"
+                position="top">
+                <Button
+                  onClickHandle={() => handleNextButtonClick()}
+                  additionClassname="baikal_option_bar__control__btn">
+                  <div className="baikal_option_bar__control__btn__text">
+                    <span>Далее</span>
+                    <img src={rightArrowIcon} alt="Right arrow" className="baikal_option_bar__control__btn__text__right_arrow" />
+                  </div>
+                </Button>
+              </Tooltip>
             </div>
           </div>
         </div>

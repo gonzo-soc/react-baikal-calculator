@@ -1,0 +1,94 @@
+.baikal_mobile_menu {
+  position: fixed;
+  display: block;
+  z-index: 18;
+  left: -100%;
+  top: 0;
+
+  transition: all 2s ease-in-out;
+
+  width: 100vw;
+  height: 100vh;
+  background-color: $MOBILE_MENU_BG_COLOR;
+
+  &__content {
+    position: absolute;
+    display: block;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &__email {
+      color: $ACTIVE_INPUT_LABEL_COLOR;
+      font-family: OpenSans;
+      font-size: 28px;
+      font-weight: 300;
+      font-style: normal;
+      text-align: center;
+    }
+
+    &__phone {
+      color: $ACTIVE_INPUT_LABEL_COLOR;
+      font-family: OpenSans;
+      font-size: 28px;
+      font-weight: 300;
+      font-style: normal;
+      text-align: center;
+    }
+
+    &__contact_btn {
+      @include baikal_medium_btn;
+      color: $ACTIVE_INPUT_LABEL_COLOR;
+      font-family: OpenSans;
+      font-size: 17px;
+      font-weight: 600;
+      font-style: normal;
+      text-align: center;
+
+      box-shadow: 0 4px 40px rgba(46, 80, 87, 0.12);
+      border-radius: 3px;
+      background-color: #ffffff;
+    }
+  }
+
+  &__footer {
+    position: absolute;
+    left: 50%;
+    bottom: 3.8vh;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__header {
+      color: $ACTIVE_INPUT_LABEL_COLOR;
+      font-family: OpenSans;
+      font-size: 23px;
+      font-weight: 300;
+      font-style: normal;
+      text-align: center;
+    }
+
+    &__social_net {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 16px;
+
+      &__ico {
+        display: block;
+        margin-right: 15px;
+        /* Style for "Vector" */
+        width: 51px;
+        height: 52px;
+      }
+    }
+  }
+}
+
+.is_active {
+  left: 0;
+}

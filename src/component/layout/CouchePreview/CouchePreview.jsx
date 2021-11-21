@@ -1,15 +1,10 @@
 import React from 'react';
 
 import "./CouchePreview.scss";
-import BaikalButton from "@/component/common/BaikalButton/BaikalButton";
+import Button from "@/component/common/Button/Button";
 
 export default function CouchePreview(props) {
   const { id, title, icon, selectCouchePreviewCallback, isControl } = props;
-
-  const btnAdditionStyleClassList = {
-    'btn': 'couche_preview__btn',
-    'label': 'couche_preview__btn_label',
-  }
 
   return (<div className="couche_preview">
     <div className="container">
@@ -18,19 +13,21 @@ export default function CouchePreview(props) {
           <img src={icon} alt={`Icon for couche ${title}`} className="couche_preview__icon" />
         </div>
         <div className={isControl ?
-          'col-md-4 couche_preview__title_wrapper' :
-          'col-md-6 couche_preview__title_wrapper'}>
-          <span className="couche_preview__title_wrapper__title">
+          'col-md-4 d-flex flex-column justify-content-center align-items-center' :
+          'col-md-6 d-flex flex-column justify-content-center align-items-center'}>
+          <span className="couche_preview__title">
             {title}
           </span>
         </div>
         {
           isControl ?
-            <div className="col-md-4">
-              <BaikalButton label="Выбрать"
-                parentComponentClickHandle={selectCouchePreviewCallback}
-                parentCallbackArgument={{ id }}
-                additionStyleClassList={btnAdditionStyleClassList} />
+            <div className="col-md-4 d-flex flex-column justify-content-center align-items-center">
+              <Button
+                onClickHandle={selectCouchePreviewCallback}
+                onClickHandleArg={{ id }}
+                additionClassname="couche_preview__btn">
+                <span className="couche_preview__btn_label">Выбрать</span>
+              </Button>
             </div> : ''
         }
       </div>
