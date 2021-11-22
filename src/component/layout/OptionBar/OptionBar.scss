@@ -26,9 +26,6 @@
     align-items: flex-start;
     justify-content: flex-end;
 
-    height: 10vh;
-    min-height: 98px;
-
     margin-left: 12px;
     &__btn {
       @include baikal_big_btn;
@@ -42,6 +39,7 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      height: 67px;
 
       &__text {
         display: inline-flex;
@@ -84,6 +82,17 @@
   }
 }
 
+@media screen and (max-width: 991px) {
+  .baikal_option_bar {
+    margin-left: 0;
+    margin: 0 auto;
+    &__control {
+      &__btn {
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 767px) {
   .baikal_option_bar {
     margin-left: 0;
@@ -110,6 +119,7 @@
 
 @media screen and (max-width: 575px) {
   .baikal_option_bar {
+    padding-bottom: 4vh;
     &__control {
       &__btn {
         width: 100%;

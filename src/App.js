@@ -1,8 +1,10 @@
-import React from "react";
+import React, {
+  useState
+} from "react";
 import {
   Routes,
   Route,
-  useLocation
+  useLocation,
 } from "react-router-dom";
 
 import Home from "@/component/page/Home/Home";
@@ -23,17 +25,22 @@ function App() {
     }
   }
 
+  const [isMobileMenuOpenned, setIsMobileMenuOpenned] = useState(false);
   return (
     <div className="app">
       <ContextShippingStore>
-        <Header />
-        <Routes>
-          <Route path="/" elmenent={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="/composer" element={<ShipComposer />} />
-            <Route path="*" element={<Home />} />
-          </Route>
-        </Routes>
+        <Header onClickMobileMenuHandler={() => {
+          setIsMobileMenuOpenned(!isMobileMenuOpenned);
+        }} />
+        {!isMobileMenuOpenned &&
+          <Routes>
+            <Route path="/" elmenent={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="/composer" element={<ShipComposer />} />
+              <Route path="*" element={<Home />} />
+            </Route>
+          </Routes>
+        }
       </ContextShippingStore>
     </div>
   );

@@ -65,29 +65,28 @@ export default function Tooltip(props) {
   );
 
   /* Close tip after rendering */
-  useEffect(() => {
-    autoHide();
-  }, []);
+  // useEffect(() => {
+  //   autoHide();
+  // }, []);
 
   return (
     <div className={wrapperClassname}>
       { visible &&
         <div style={style} className={classes}>
-          {isRightPosition() && <img src={leftArrowSvgIcon} alt="Tooltip: Left Arrow ico" />}
+          {isRightPosition() && <img src={leftArrowSvgIcon} alt="Tooltip: Left Arrow ico" className="baikal_tooltip__content_box__arrow left_arrow" />}
 
           <span className={contentTextClasses}>{content}</span>
 
-          {isLeftPosition() && <img src={rightArrowSvgIcon} alt="Tooltip: Right Arrow ico" />}
-          {isBottomPosition() && <img src={upArrowSvgIcon} alt="Tooltip: Up Arrow ico" />}
-          {isUpPosition() && <img src={downArrowSvgIcon} alt="Tooltip: Down Arrow ico" />}
+          {isLeftPosition() && <img src={rightArrowSvgIcon} alt="Tooltip: Right Arrow ico" className="baikal_tooltip__content_box__arrow right_arrow" />}
+          {isBottomPosition() && <img src={upArrowSvgIcon} alt="Tooltip: Up Arrow ico" className="baikal_tooltip__content_box__arrow up_arrow" />}
+          {isUpPosition() && <img src={downArrowSvgIcon} alt="Tooltip: Down Arrow ico" className="baikal_tooltip__content_box__arrow down_arrow" />}
 
-          <img src={redCrossSvgIcon} alt="Tooltip: Close the tip ico" onClick={hide} />
+          <img src={redCrossSvgIcon} alt="Tooltip: Close the tip ico" onClick={hide} className="baikal_tooltip__content_box__cross" />
         </div>
       }
       <div
         className={targetClasses}
         onMouseEnter={show}
-        onMouseLeave={hide}
       >{children}</div>
     </div>
   );

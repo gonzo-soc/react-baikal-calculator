@@ -15,7 +15,7 @@ export default function SearchBar(props) {
           setSearchCriteria(event.target.value);
         }
       } />
-      <div className="col-md-3 px-0">
+      <div className="col-md-3 px-0 mobile_is_hidden">
         <div className="baikal_search_bar__control">
           <Button
             onClickHandle={

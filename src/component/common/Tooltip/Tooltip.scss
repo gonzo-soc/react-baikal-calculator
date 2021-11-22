@@ -31,8 +31,23 @@
       @include baikal_limited_title;
     }
 
-    img {
+    &__arrow {
       padding-left: 1rem;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+    }
+
+    &__cross {
+      transition: all 0.5s ease-in-out;
+      padding-left: 0;
+      margin-left: 1rem;
+      border-radius: 50%;
+      cursor: pointer;
+      &:hover {
+        background-color: $DISABLE_ELEMENT_COLOR;
+        transform: scale(1.3);
+      }
     }
   }
 
@@ -60,6 +75,41 @@
     right: calc(100% + 48px);
     transform: translateY(-50%);
     top: 50%;
+  }
+}
+
+.up_arrow {
+  transition: all 2s ease-in-out;
+  &:hover {
+    transform: translateY(-50%);
+  }
+}
+
+.down_arrow {
+  &:hover {
+    transform: translateY(50%);
+  }
+}
+
+.left_arrow {
+  &:hover {
+    transform: translateX(-50%);
+  }
+}
+
+.right_arrow {
+  &:hover {
+    transform: translateX(50%);
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .baikal_tooltip {
+    .top,
+    .bottom {
+      right: 0;
+      left: unset;
+    }
   }
 }
 

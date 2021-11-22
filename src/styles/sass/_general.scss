@@ -55,6 +55,10 @@
   overflow: auto;
 }
 
+.mobile_is_hidden {
+  display: block;
+}
+
 @media screen and (min-height: 990px) and (orientation: landscape) {
   .baikal_main_content {
     max-height: 85vh;
@@ -66,5 +70,11 @@
   .baikal_main_content {
     max-height: unset;
     height: auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .mobile_is_hidden {
+    display: none;
   }
 }

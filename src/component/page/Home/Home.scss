@@ -1,9 +1,10 @@
 .home {
   flex-grow: 1;
+  padding-bottom: 18.45vh;
 
   &__bg_img {
     display: block;
-    z-index: 0;
+    z-index: -2;
     width: 80vw;
 
     position: fixed;
@@ -28,6 +29,7 @@
 
 @media screen and (max-width: 991px) {
   .home {
+    padding-bottom: 38.45vh;
     &__header {
       &__title {
         font-size: calc(32px + 1.5vw);

@@ -10,6 +10,7 @@ import { findCoucheDictItem } from "@/store/data/CoucheDictData";
 import SearchBar from "@/component/common/SearchBar/SearchBar";
 import CouchePreview from "@/component/layout/CouchePreview/CouchePreview";
 import CoucheEditor from "@/component/layout/CoucheEditor/CoucheEditor";
+import backArrowSvgIco from "@/styles/images/icons/ship_composer/back_arrow.svg";
 
 
 const ShipComposer = observer(() => {
@@ -58,12 +59,13 @@ const ShipComposer = observer(() => {
     <main className="ship_composer baikal_main_content">
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-6 pl-0">
+          <div className="col-12 col-md-7 col-lg-6 pl-md-0">
             <section className="ship_composer__search_bar">
-              <h2 className="ship_composer__search_bar__header">
+              <h2 className="ship_composer__search_bar__header mobile_is_hidden">
                 Выберите мебель, которую нужно перевезти
               </h2>
               <div className="ship_composer__search_bar__control">
+                <img src={backArrowSvgIco} alt="Ship composer: back arrow icon" className="ship_composer__search_bar__control__back_arrow_ico" />
                 <SearchBar searchCriteriaSubmitHandler={
                   (searchCriteria) => {
                     setCouchePreviewList(getFilteredCouchePreviewList(searchCriteria))
@@ -77,7 +79,7 @@ const ShipComposer = observer(() => {
               </div>
             </section>
           </div>
-          <div className="col-md-6">
+          <div className="col-12 col-md-5 col-lg-6">
             <section className="ship_composer__editor">
               <h2 className="ship_composer__editor__header">
                 Затем заполните следующие <br />поля выбранного элемента:

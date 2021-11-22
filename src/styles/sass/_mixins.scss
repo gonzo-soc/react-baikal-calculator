@@ -24,6 +24,26 @@
   width: 132px;
   height: 45px;
   border-radius: 3px;
+
+  @media screen and (max-width: 1199px) {
+    width: calc(110px + 1.1vw);
+    height: calc(40px + 0.5vw);
+  }
+
+  @media screen and (max-width: 991px) {
+    width: calc(92px + 1.2vw);
+    height: calc(36px + 0.5vw);
+  }
+
+  @media screen and (max-width: 567px) {
+    width: calc(80px + 1.2vw);
+    height: calc(32px + 0.5vw);
+  }
+
+  @media screen and (max-width: 320px) {
+    width: calc(70px + 1.2vw);
+    height: calc(28px + 0.5vw);
+  }
 }
 
 @mixin baikal_big_btn_sz {
@@ -31,9 +51,14 @@
   height: 67px;
   border-radius: 3px;
 
+  @media screen and (max-width: 991px) {
+    max-width: 210px;
+    width: 20.33vw;
+  }
+
   @media screen and (max-width: 767px) {
-    max-width: 335px;
-    width: 89.33vw;
+    max-width: 420px;
+    width: 88.33vw;
   }
 }
 
@@ -44,9 +69,19 @@
 }
 
 @mixin baikal_wide_btn_sz {
-  width: 233px;
+  width: 15vw;
+  min-width: 150px;
+  max-width: 223px;
+
   height: 55px;
   border-radius: 5px;
+
+  @media screen and (max-width: 991px) {
+    min-width: 110px;
+    max-width: unset;
+    width: 17vw;
+    height: 46px;
+  }
 }
 
 @mixin baikal_medium_btn {
@@ -83,11 +118,11 @@
     font-size: 15px;
   }
 
-  @media screen and (max-width: 991px) {
+  @media screen and (max-width: 1199px) {
     font-size: calc(10px + 0.5vw);
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 991px) {
     font-size: calc(12px + 1vw);
   }
 }

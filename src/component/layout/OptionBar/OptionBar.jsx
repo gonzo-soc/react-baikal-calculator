@@ -121,7 +121,7 @@ const OptionBar = observer(() => {
               </section>
             </Tooltip>
           </div>
-          <div className="col-sm-11 col-md-3 px-0">
+          <div className="col-sm-11 col-md-3 px-0 d-flex flex-column justify-content-end">
 
             <div className="baikal_option_bar__control">
               <Tooltip content='Теперь нажмите на кнопку "Далее"'

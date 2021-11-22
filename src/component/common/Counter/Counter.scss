@@ -114,3 +114,14 @@
     background-color: #ffffff;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .control_box {
+    min-width: 40px;
+    max-width: 46px;
+    width: 3.68vw;
+    min-height: 40px;
+    max-height: 46px;
+    height: 3.68vw;
+  }
+}

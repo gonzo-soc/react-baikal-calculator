@@ -1,5 +1,5 @@
 .baikal_mobile_menu {
-  position: fixed;
+  position: absolute;
   display: block;
   z-index: 18;
   left: -100%;
@@ -9,6 +9,7 @@
 
   width: 100vw;
   height: 100vh;
+  padding-bottom: 30px;
   background-color: $MOBILE_MENU_BG_COLOR;
 
   &__content {
@@ -91,4 +92,31 @@
 
 .is_active {
   left: 0;
+}
+
+@media screen and (max-width: 567px) {
+  .baikal_mobile_menu {
+    &__content {
+      &__email {
+      }
+
+      &__phone {
+      }
+
+      &__contact_btn {
+        @include baikal_medium_btn;
+        font-size: 14px;
+      }
+    }
+
+    &__footer {
+      &__header {
+      }
+
+      &__social_net {
+        &__ico {
+        }
+      }
+    }
+  }
 }

@@ -30,7 +30,11 @@ export default class DataList extends Component {
 
     if (itemFragment.length > 0) {
       const itemFragmentRegExp = new RegExp('^(' + itemFragment + '.*)$', 'gi');
-      const newShowItemList = this.props.dictItemList.filter((item) => item['title'].match(itemFragmentRegExp) !== null);
+      const newShowItemList =
+        this.props.dictItemList.filter(
+          (item) => item['title'].match(itemFragmentRegExp) !== null
+        );
+
       dummySelected['title'] = itemFragment;
       this.setState({
         selectedItem: dummySelected,
@@ -51,7 +55,11 @@ export default class DataList extends Component {
     let newSelectedItem = this.props.dictItemList[0];
     if (itemFragment.length > 0) {
       const itemFragmentRegExp = new RegExp('^(' + itemFragment + '.*)$', 'gi');
-      const filteredDictItemList = this.props.dictItemList.filter((item) => item['title'].match(itemFragmentRegExp) !== null);
+      const filteredDictItemList =
+        this.props.dictItemList.filter(
+          (item) => item['title'].match(itemFragmentRegExp) !== null
+        );
+
       if (filteredDictItemList.length > 0) {
         newSelectedItem = filteredDictItemList[0];
       }
@@ -74,7 +82,10 @@ export default class DataList extends Component {
     }
 
     const itemFragmentRegExp = new RegExp('^(' + newSelectedItemValue + '.*)$', 'gi');
-    const newShowItemList = this.props.dictItemList.filter((item) => item['title'].match(itemFragmentRegExp) !== null);
+    const newShowItemList = this.props.dictItemList.filter(
+      (item) => item['title'].match(itemFragmentRegExp) !== null
+    );
+
     if (newShowItemList.length !== 0) {
       this.setState({
         selectedItem: newShowItemList[0],
@@ -104,7 +115,13 @@ export default class DataList extends Component {
       return null;
     } else {
       return (
-        showItemList.map((item) => <li key={item['id'] + '_' + item['title']} className="baikal_dl__content_list__item" onClick={this.onItemClickHandler}><span className="baikal_dl__content_list__item__text">{item['title']}</span></li>)
+        showItemList.map(
+          (item) =>
+            <li key={item['id'] + '_' + item['title']}
+              className="baikal_dl__content_list__item"
+              onClick={this.onItemClickHandler}>
+              <span className="baikal_dl__content_list__item__text">{item['title']}</span>
+            </li>)
       );
     }
   }
@@ -127,10 +144,16 @@ export default class DataList extends Component {
 
     return (
       <div className="baikal_dl">
-        <label htmlFor={`baikal_dl__input__${this.props.label}`} className={inputLabelClassname}>{this.props.label}</label>
+        <label htmlFor={`baikal_dl__input__${this.props.label}`}
+          className={inputLabelClassname}>{this.props.label}</label>
+
         <div className={inputWrapperClassname}>
           <div className="baikal_dl__input_wrapper__input_inner_wrapper">
-            <input name={`baikal_dl__input__${this.props.label}`} className="baikal_dl__input_wrapper__input_inner_wrapper__input" type="text" onChange={this.onChangeHandler} onBlur={this.onBlurHandler} value={this.state.selectedItem['title']} />
+            <input name={`baikal_dl__input__${this.props.label}`}
+              className="baikal_dl__input_wrapper__input_inner_wrapper__input"
+              type="text" onChange={this.onChangeHandler}
+              onBlur={this.onBlurHandler}
+              value={this.state.selectedItem['title']} />
 
             <img src={downArrowSvg} alt="Down Arrow"
               className={selectArrowClassname}

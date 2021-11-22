@@ -6,11 +6,6 @@ import backgroundIllustrationSvg from "@/styles/images/background-images/home-pg
 export default class Home extends Component {
   constructor() {
     super();
-    this.onHandleNext = this.onHandleNext.bind(this);
-  }
-
-  onHandleNext() {
-
   }
 
   render() {

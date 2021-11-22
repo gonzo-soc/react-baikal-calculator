@@ -41,7 +41,20 @@
   }
 }
 
-@media screen and (min-height: 990px) and (orientation: landscape) {
+@media screen and (max-width: 991px) {
   .couche_preview {
+    height: auto;
+
+    &__btn_label {
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .couche_preview {
+    &__btn_label {
+      font-size: 12px;
+    }
   }
 }

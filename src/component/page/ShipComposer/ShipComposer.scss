@@ -10,15 +10,19 @@
       width: 42.01vw;
       color: $HEADER_TEXT_COLOR;
       font-family: OpenSans;
-      font-size: 36px;
+      font-size: calc(16px + 1.1vw);
       font-weight: 400;
       font-style: normal;
       text-align: left;
-      margin: 0 auto 0 0;
+      margin: auto auto auto 0;
     }
 
     &__control {
       padding-top: 41px;
+
+      &__back_arrow_ico {
+        display: none;
+      }
     }
 
     &__result_wrapper {
@@ -53,12 +57,13 @@
       max-width: 100%;
       color: $HEADER_TEXT_COLOR;
       font-family: OpenSans;
-      font-size: 36px;
+      font-size: calc(16px + 1.1vw);
       font-weight: 400;
       font-style: normal;
       text-align: left;
 
       padding-right: 97px;
+      margin: auto;
       @include baikal_limited_title;
     }
 
@@ -85,7 +90,7 @@
   }
 }
 
-@media screen and (min-height: 990px) and (orientation: landscape) {
+@media screen and (min-height: 990px) {
   .ship_composer {
     &__body {
       &__content {
@@ -97,12 +102,141 @@
   }
 }
 
-@media screen and (max-height: 720px) and (orientation: landscape) {
+@media screen and (max-width: 1399px) {
   .ship_composer {
-    &__body {
+    &__search_bar {
+      &__header {
+      }
+
+      &__control {
+      }
+
+      &__result_wrapper {
+        &__result {
+        }
+      }
+    }
+
+    &__editor {
+      padding-left: 9vw;
+
+      &__header {
+      }
+
       &__content {
-        &__couche_preview_list {
-          height: auto;
+        &__placeholder {
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .ship_composer {
+    &__search_bar {
+      &__header {
+      }
+
+      &__control {
+        padding-top: 32px;
+      }
+
+      &__result_wrapper {
+        padding-top: 42px;
+        &__result {
+        }
+      }
+    }
+
+    &__editor {
+      padding-left: 4vw;
+
+      &__header {
+      }
+
+      &__content {
+        &__placeholder {
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .ship_composer {
+    &__search_bar {
+      padding-left: 7vw;
+      &__header {
+      }
+
+      &__control {
+      }
+
+      &__result_wrapper {
+        &__result {
+        }
+      }
+    }
+
+    &__editor {
+      padding-left: 0;
+
+      &__header {
+        padding-right: 0;
+      }
+
+      &__content {
+        &__placeholder {
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .ship_composer {
+    position: relative;
+    top: -4vw;
+    padding: 0;
+
+    &__search_bar {
+      padding: 0;
+      padding-top: 21px;
+
+      &__control {
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        &__back_arrow_ico {
+          display: block;
+          margin-right: 40px;
+          padding-left: 22px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .ship_composer {
+    position: relative;
+    top: -4vw;
+    padding: 0;
+
+    &__search_bar {
+      padding: 0;
+      padding-top: 21px;
+
+      &__control {
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        &__back_arrow_ico {
+          display: block;
+          margin-right: 7px;
+          padding-left: 7px;
         }
       }
     }
