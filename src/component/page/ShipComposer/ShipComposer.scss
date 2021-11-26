@@ -30,6 +30,7 @@
       min-height: 434px;
       height: 47.5vh;
       padding-top: 58px;
+      max-width: 720px;
 
       &__result {
         display: flex;
@@ -63,7 +64,7 @@
       text-align: left;
 
       padding-right: 97px;
-      margin: auto;
+      margin: auto auto auto 0;
       @include baikal_limited_title;
     }
 
@@ -71,7 +72,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       flex: 1 0 auto;
       text-align: center;
       width: 100%;
@@ -102,8 +103,41 @@
   }
 }
 
-@media screen and (max-width: 1399px) {
+@media screen and (min-width: 768px) {
   .ship_composer {
+    &__back_arrow_ico {
+      display: none;
+    }
+
+    &__search_bar {
+      &__header {
+      }
+
+      &__control {
+      }
+
+      &__result_wrapper {
+        &__result {
+        }
+      }
+    }
+
+    &__editor {
+      &__header {
+      }
+
+      &__content {
+        &__placeholder {
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .ship_composer {
+    &__back_arrow_ico {
+    }
     &__search_bar {
       &__header {
       }
@@ -121,6 +155,69 @@
       padding-left: 9vw;
 
       &__header {
+        overflow: unset;
+      }
+
+      &__content {
+        &__placeholder {
+          font-size: 27px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .ship_composer {
+    &__back_arrow_ico {
+      display: none;
+    }
+
+    &__search_bar {
+      padding-left: 0;
+      &__header {
+      }
+
+      &__control {
+      }
+
+      &__result_wrapper {
+        &__result {
+        }
+      }
+    }
+
+    &__editor {
+      padding-left: 0;
+      &__header {
+      }
+
+      &__content {
+        &__placeholder {
+          font-size: 32px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1399px) {
+  .ship_composer {
+    &__search_bar {
+      &__header {
+      }
+
+      &__control {
+      }
+
+      &__result_wrapper {
+        &__result {
+        }
+      }
+    }
+
+    &__editor {
+      &__header {
       }
 
       &__content {
@@ -133,6 +230,8 @@
 
 @media screen and (max-width: 1199px) {
   .ship_composer {
+    &__back_arrow_ico {
+    }
     &__search_bar {
       &__header {
       }
@@ -164,6 +263,9 @@
 
 @media screen and (max-width: 991px) {
   .ship_composer {
+    &__back_arrow_ico {
+    }
+
     &__search_bar {
       padding-left: 7vw;
       &__header {
@@ -179,7 +281,7 @@
     }
 
     &__editor {
-      padding-left: 0;
+      padding-left: 3vw;
 
       &__header {
         padding-right: 0;
@@ -199,19 +301,48 @@
     top: -4vw;
     padding: 0;
 
-    &__search_bar {
+    &__back_arrow_ico {
+      position: absolute;
+      top: 7vw;
+      left: 4vw;
+      margin: 0;
       padding: 0;
-      padding-top: 21px;
+
+      display: block;
+    }
+
+    &__search_bar {
+      padding-top: 4vw;
+      padding: 0;
+
+      &__header {
+        display: none;
+      }
 
       &__control {
         padding: 0;
         display: flex;
+        flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        &__back_arrow_ico {
-          display: block;
-          margin-right: 40px;
-          padding-left: 22px;
+        width: 100%;
+      }
+
+      &__result_wrapper {
+        max-height: unset;
+        height: auto;
+        min-height: unset;
+
+        padding-top: 3.64vh;
+      }
+    }
+    &__editor {
+      transition: display 2s ease-in-out;
+      padding-top: 0;
+      padding-left: 0;
+
+      &__content {
+        &__placeholder {
         }
       }
     }
@@ -220,25 +351,31 @@
 
 @media screen and (max-width: 567px) {
   .ship_composer {
-    position: relative;
-    top: -4vw;
-    padding: 0;
+    &__back_arrow_ico {
+    }
 
     &__search_bar {
-      padding: 0;
-      padding-top: 21px;
-
       &__control {
-        padding: 0;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        &__back_arrow_ico {
-          display: block;
-          margin-right: 7px;
-          padding-left: 7px;
-        }
       }
+    }
+
+    &__editor {
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .ship_composer {
+    &__back_arrow_ico {
+    }
+
+    &__search_bar {
+      &__control {
+      }
+    }
+
+    &__editor {
+      padding-top: 42px;
     }
   }
 }

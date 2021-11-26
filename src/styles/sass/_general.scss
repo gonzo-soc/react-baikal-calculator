@@ -46,22 +46,19 @@
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
+  align-items: center;
+  justify-content: center;
 
-  min-height: 480px;
-  max-height: 720px;
-  height: 85vh;
+  min-height: 657px;
+  height: auto;
 
   max-width: 100%;
   overflow: auto;
 }
 
-.mobile_is_hidden {
-  display: block;
-}
-
-@media screen and (min-height: 990px) and (orientation: landscape) {
+@media screen and (min-height: 1024px) {
   .baikal_main_content {
-    max-height: 85vh;
+    max-height: 90vh;
     min-height: unset;
   }
 }
@@ -74,7 +71,10 @@
 }
 
 @media screen and (max-width: 767px) {
-  .mobile_is_hidden {
-    display: none;
+  .baikal_main_content {
+    max-height: unset;
+    flex-grow: 1;
+    height: auto;
+    min-height: unset;
   }
 }

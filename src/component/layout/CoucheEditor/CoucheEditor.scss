@@ -7,6 +7,10 @@
   justify-content: flex-start;
   align-items: flex-start;
 
+  &__mobile_header {
+    display: none;
+  }
+
   &__preview {
     border-radius: 3px;
   }
@@ -22,43 +26,6 @@
     justify-content: center;
 
     padding-top: 24px;
-
-    &__input {
-      display: block;
-      margin-top: 15px;
-
-      outline: none;
-      border-radius: 3px;
-
-      padding-left: 19px;
-      padding-top: 19px;
-      padding-bottom: 14px;
-
-      /* Style for "Rectangle" */
-      min-width: 319px;
-      max-width: 420px;
-      width: 22.15vw;
-      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
-      border-radius: 3px;
-      border-color: transparent;
-      background-color: #ffffff;
-    }
-
-    &__input:first-child {
-      margin-top: 0;
-    }
-
-    ::placeholder {
-      color: $INPUT_LABEL_COLOR;
-      font-family: OpenSans;
-      font-size: 15px;
-      font-weight: 400;
-      font-style: normal;
-      text-align: left;
-
-      padding-top: 19px;
-      padding-bottom: 14px;
-    }
   }
 
   &__btn_panel {
@@ -123,20 +90,6 @@
     }
 
     &__input_panel {
-      &__input {
-        min-width: 250px;
-        width: 32vw;
-        max-width: 270px;
-        padding-top: 7px;
-        padding-bottom: 7px;
-        padding-left: 11px;
-      }
-
-      &__input:first-child {
-      }
-
-      ::placeholder {
-      }
     }
 
     &__btn_panel {
@@ -162,6 +115,15 @@
 
 @media screen and (max-width: 767px) {
   .couche_editor {
+    width: 100%;
+    padding-top: 0;
+
+    &__mobile_header {
+      display: flex;
+      flex: 1 0 auto;
+      justify-content: space-evenly;
+    }
+
     &__preview {
     }
 
@@ -169,18 +131,16 @@
     }
 
     &__input_panel {
-      &__input {
-      }
-
-      &__input:first-child {
-      }
-
-      ::placeholder {
-      }
+      width: 100%;
     }
 
     &__btn_panel {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+
       &__btn_wrapper {
+        width: 100%;
       }
 
       &__btn_wrapper:last-child {
@@ -188,6 +148,10 @@
     }
 
     &__btn {
+      width: 100%;
+      min-height: 55px;
+      height: 8.35vh;
+      max-height: 68px;
     }
 
     &__btn_label {
@@ -195,5 +159,61 @@
   }
 
   .content_panel_sz {
+    max-width: 100%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .couche_editor {
+    width: 100%;
+    &__preview {
+    }
+
+    &__counter {
+    }
+
+    &__input_panel {
+      width: 100%;
+      padding-top: 0;
+      .baikal_input:first-child {
+        margin-top: 0;
+      }
+    }
+
+    &__btn_panel {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+
+      &__btn_wrapper {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      &__btn_wrapper:last-child {
+        padding-top: 1.2vh;
+      }
+    }
+
+    &__btn {
+      width: 100%;
+      min-height: 55px;
+      height: 8.35vh;
+      max-height: 75px;
+    }
+
+    &__btn_label {
+    }
+  }
+
+  .content_panel_sz {
+    max-width: 100%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

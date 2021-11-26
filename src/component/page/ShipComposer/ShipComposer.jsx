@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { observer } from 'mobx-react';
+import className from "classnames";
 
 import "./ShipComposer.scss";
 
@@ -10,15 +11,20 @@ import { findCoucheDictItem } from "@/store/data/CoucheDictData";
 import SearchBar from "@/component/common/SearchBar/SearchBar";
 import CouchePreview from "@/component/layout/CouchePreview/CouchePreview";
 import CoucheEditor from "@/component/layout/CoucheEditor/CoucheEditor";
-import backArrowSvgIco from "@/styles/images/icons/ship_composer/back_arrow.svg";
+import Tooltip from "@/component/common/Tooltip/Tooltip";
 
+import backArrowSvgIco from "@/styles/images/icons/ship_composer/back_arrow.svg";
+import classNames from 'classnames';
 
 const ShipComposer = observer(() => {
 
-  // const store = useContext(ShippingContext);
+  const store = useContext(ShippingContext);
 
   const [couchePreviewList, setCouchePreviewList] = useState(getCoucheDictData());
   const [selectedCouchePreview, setSelectedCouchePreview] = useState(null);
+
+  const shipComposerEditorBlockClassname = classNames("ship_composer__editor", { 'md_flex_mobile_hide': (selectedCouchePreview === null) });
+  const shipComposerSearchBarBlockClassname = classNames("ship_composer__search_bar", { 'md_block_mobile_hide': (selectedCouchePreview !== null) })
 
   const selectCouchePreviewHandle = ({ id }) => {
     const coucheDictItem = findCoucheDictItem(id);
@@ -29,8 +35,14 @@ const ShipComposer = observer(() => {
     }
   }
 
+  const createShipInfoItem = (shipInfo) => {
+    const { count, size, netWeight, grossWeight, price } = shipInfo;
+    const id = selectedCouchePreview[id];
+
+  }
+
   const getCouchePreviewList = () => {
-    return getCoucheDictData().map(
+    return couchePreviewList.map(
       (couchePreview) =>
         <CouchePreview key={couchePreview['id'] + '_' + couchePreview['title']}
           id={couchePreview['id']} icon={couchePreview['icon']}
@@ -44,7 +56,7 @@ const ShipComposer = observer(() => {
       return (<span className="ship_composer__editor__content__placeholder">
         Вы не выбрали пока ни одного элемента.</span>);
     } else {
-      return (<CoucheEditor id={selectedCouchePreview['id']} />);
+      return (<CoucheEditor id={selectedCouchePreview['id']} createShipInfoHandler={createShipInfoItem} />);
     }
   };
 
@@ -52,26 +64,30 @@ const ShipComposer = observer(() => {
     return getCoucheDictData().filter((couche) => {
       const searchCriteriaRegExp = new RegExp('^(' + searchCriteria + '.*)$', 'gi');
       return couche.title.match(searchCriteriaRegExp) !== null;
-    })
+    });
   }
 
   return (
     <main className="ship_composer baikal_main_content">
+      <img src={backArrowSvgIco} alt="Ship composer: back arrow icon" className="ship_composer__back_arrow_ico" />
       <div className="container-fluid">
         <div className="row">
-          <div className="col-12 col-md-7 col-lg-6 pl-md-0">
-            <section className="ship_composer__search_bar">
-              <h2 className="ship_composer__search_bar__header mobile_is_hidden">
+          <div className="col-12 col-md-6 col-xl-5 offset-xl-1 pl-md-0">
+            <section className={shipComposerSearchBarBlockClassname}>
+              <h2 className="ship_composer__search_bar__header">
                 Выберите мебель, которую нужно перевезти
               </h2>
-              <div className="ship_composer__search_bar__control">
-                <img src={backArrowSvgIco} alt="Ship composer: back arrow icon" className="ship_composer__search_bar__control__back_arrow_ico" />
-                <SearchBar searchCriteriaSubmitHandler={
-                  (searchCriteria) => {
-                    setCouchePreviewList(getFilteredCouchePreviewList(searchCriteria))
-                  }
-                } />
-              </div>
+              <Tooltip content='Теперь ваши параметры выведены сверху, нажмите на них, чтобы  внести изменения'
+                additionWrapperClassname="w-full"
+                position="right">
+                <div className="ship_composer__search_bar__control">
+                  <SearchBar searchCriteriaSubmitHandler={
+                    (searchCriteria) => {
+                      setCouchePreviewList(getFilteredCouchePreviewList(searchCriteria))
+                    }
+                  } isFocus={true} />
+                </div>
+              </Tooltip>
               <div className="ship_composer__search_bar__result_wrapper">
                 <div className="ship_composer__search_bar__result_wrapper__result">
                   {getCouchePreviewList()}
@@ -79,9 +95,9 @@ const ShipComposer = observer(() => {
               </div>
             </section>
           </div>
-          <div className="col-12 col-md-5 col-lg-6">
-            <section className="ship_composer__editor">
-              <h2 className="ship_composer__editor__header">
+          <div className="col-12 col-md-5 col-xl-5 offset-xl-1">
+            <section className={shipComposerEditorBlockClassname}>
+              <h2 className="ship_composer__editor__header md_block_mobile_hide">
                 Затем заполните следующие <br />поля выбранного элемента:
               </h2>
               <div className="ship_composer__editor__content">

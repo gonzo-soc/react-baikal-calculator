@@ -36,13 +36,13 @@
   }
 
   @media screen and (max-width: 567px) {
-    width: calc(80px + 1.2vw);
-    height: calc(32px + 0.5vw);
+    width: calc(90px + 1.2vw);
+    height: calc(40px + 0.5vw);
   }
 
   @media screen and (max-width: 320px) {
-    width: calc(70px + 1.2vw);
-    height: calc(28px + 0.5vw);
+    width: calc(80px + 1.2vw);
+    height: calc(30px + 0.5vw);
   }
 }
 
@@ -112,6 +112,7 @@
   font-weight: 500;
   font-style: normal;
   letter-spacing: 0.2px;
+  cursor: pointer;
 
   /* XXLarge [1400 - ...) */
   @media screen and (min-width: 992px) {
@@ -177,4 +178,13 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+@mixin baikal_limited_2line_title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

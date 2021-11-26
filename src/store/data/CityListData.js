@@ -3,7 +3,7 @@ const cityListData = [
     id: 1,
     title: 'Moscow',
   },
-  
+
   {
     id: 2,
     title: 'Yuzhno-Sakhalinsk',
@@ -15,7 +15,7 @@ const cityListData = [
   },
 
   {
-    id: 3,
+    id: 4,
     title: 'Saint-Petersburg',
   },
 ]

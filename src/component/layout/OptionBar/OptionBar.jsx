@@ -16,69 +16,25 @@ import Tooltip from "@/component/common/Tooltip/Tooltip";
 
 const OptionBar = observer(() => {
   const store = useContext(ShippingContext);
-  const navigate = useNavigate();
-  const [isFromValid, setIsFromValid] = useState(true);
-  const [isToValid, setIsToValid] = useState(true);
-  const [isCurrencyValid, setIsCurrencyValid] = useState(true);
-
   const optionBarState = store.getOptionBarUIState;
+  const attributeNameDict = optionBarState.getAttributeNameDict;
 
-  const attributeNameDict = {
-    from: 'Откуда',
-    to: 'Куда',
-    currency: 'Валюта',
-  };
-  const attributeChangeCallback = (name, value) => {
-    switch (name) {
-      case attributeNameDict['from']:
-        optionBarState.setFrom = value;
-        break;
-
-      case attributeNameDict['to']:
-        optionBarState.setTo = value;
-        break;
-
-      case attributeNameDict['currency']:
-        optionBarState.setCurrency = value;
-        break;
-
-      default:
-        console.warn("OptionBar [attributeChangeCallback] Unknown attribute name [ " + name + " ]");
-        break;
-    }
-  }
-
-  const attributeChangeHandler = (name, value) => { attributeChangeCallback(name, value); }
-  const fromChangeHandler = (value) => attributeChangeHandler(attributeNameDict['from'], value);
-  const toChangeHandler = (value) => attributeChangeHandler(attributeNameDict['to'], value);
-  const currencyChangeHandler = (value) => attributeChangeHandler(attributeNameDict['currency'], value);
+  const navigate = useNavigate();
+  const [isFromInvalid, setIsFromInvalid] = useState(false);
+  const [isToInvalid, setIsToInvalid] = useState(false);
+  const [isCurrencyInvalid, setIsCurrencyInvalid] = useState(false);
 
   const validateFrom = () => {
-    if (!optionBarState.from || !optionBarState.from['title'] || optionBarState.from['title'] === optionBarState.to['title']) {
-      setIsFromValid(false);
-      return false;
-    } else {
-      setIsFromValid(true);
-    }
-    return true;
+    setIsFromInvalid(optionBarState.isFromInvalid)
+    return !optionBarState.isFromInvalid;
   }
   const validateTo = () => {
-    if (!optionBarState.to || !optionBarState.to['title'] || optionBarState.to['title'] === optionBarState.from['title']) {
-      setIsToValid(false);
-      return false;
-    } else {
-      setIsToValid(true);
-    }
-    return true;
+    setIsToInvalid(optionBarState.isToInvalid)
+    return !optionBarState.isToInvalid;
   }
   const validateCurrency = () => {
-    if (!optionBarState.currency || !optionBarState.currency['title']) {
-      setIsCurrencyValid(false);
-      return false;
-    } else {
-      setIsCurrencyValid(true);
-    }
-    return true;
+    setIsCurrencyInvalid(optionBarState.isCurrencyInvalid)
+    return !optionBarState.isCurrencyInvalid;
   }
 
   const validate = () => {
@@ -102,13 +58,25 @@ const OptionBar = observer(() => {
             <Tooltip content="Для начала заполните поля выше" position="bottom">
               <section className="baikal_option_bar__input_panel d-flex flex-wrap">
                 <div className="col-12 col-sm-6 col-md-3 px-md-0">
-                  <DataList label={attributeNameDict['from']} dictItemList={getCityList()} selectedItem={optionBarState.from} attributeChangeHandler={fromChangeHandler} isValid={isFromValid} />
+                  <DataList label={attributeNameDict['from']}
+                    dictItemList={getCityList()}
+                    selectedItem={optionBarState.from}
+                    attributeChangeHandler={(value) => { optionBarState.changeFrom(value) }}
+                    isInvalid={isFromInvalid} />
                 </div>
                 <div className="col-12 col-sm-6 col-md-3 px-md-0">
-                  <DataList label={attributeNameDict['to']} dictItemList={getCityList()} selectedItem={optionBarState.to} attributeChangeHandler={toChangeHandler} isValid={isToValid} />
+                  <DataList label={attributeNameDict['to']}
+                    dictItemList={getCityList()}
+                    selectedItem={optionBarState.to}
+                    attributeChangeHandler={(value) => { optionBarState.changeTo(value) }}
+                    isInvalid={isToInvalid} />
                 </div>
                 <div className="col-12 col-sm-6 col-md-3 px-md-0">
-                  <DataList label={attributeNameDict['currency']} dictItemList={getCurrencyList()} selectedItem={optionBarState.currency} attributeChangeHandler={currencyChangeHandler} isValid={isCurrencyValid} />
+                  <DataList label={attributeNameDict['currency']}
+                    dictItemList={getCurrencyList()}
+                    selectedItem={optionBarState.currency}
+                    attributeChangeHandler={(value) => { optionBarState.changeCurrency(value) }}
+                    isInvalid={isCurrencyInvalid} />
                 </div>
                 <div className="col-12 col-sm-6 col-md-3 px-md-0">
                   <div className="baikal_option_bar__rate">

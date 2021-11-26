@@ -30,8 +30,8 @@
     font-style: normal;
     text-align: left;
 
-    padding-top: 19px;
-    padding-bottom: 14px;
+    // padding-top: 19px;
+    // padding-bottom: 14px;
   }
 
   &__control {
@@ -74,14 +74,22 @@
 
 @media screen and (max-width: 767px) {
   .baikal_search_bar {
-    flex: 0 0 70.93vw;
     margin: 0;
+    min-width: 205px;
+    width: 70%;
 
     &__input {
       width: 100%;
+      min-width: unset;
       padding-left: 0;
+      margin-right: 0;
+
       background-color: transparent;
       border-bottom: 2px solid $SEARCH_BORD_COLOR;
+
+      height: 4.55vh;
+      max-height: 42px;
+      min-height: 32px;
     }
   }
 }

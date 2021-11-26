@@ -56,7 +56,7 @@ class ShippingStore {
       const infoIndex = this.shippingCoucheInfoList.findIndex((item) => item.id === shippingCoucheInfo.id);
       if (infoIndex >= 0) {
         const info = shippingCoucheInfo[infoIndex];
-        for (let k in Object.keys(info)) {
+        for (let k in info) {
           // not include property from __proto__
           if (shippingCoucheInfo.hasOwnProperty(k)) {
             info[k] = shippingCoucheInfo[k];

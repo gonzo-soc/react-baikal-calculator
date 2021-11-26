@@ -6,38 +6,40 @@
   margin-bottom: 4px;
   transition: all 3s ease-in-out;
 
-  &__icon {
-    display: block;
-    max-width: 100%;
-    max-height: 99px;
-    margin: auto auto auto 0;
-  }
+  &__wrapper {
+    &__icon {
+      display: block;
+      max-width: 100%;
+      max-height: 99px;
+      margin: auto auto auto 0;
+    }
 
-  &__title {
-    max-width: 100%;
-    color: $ACTIVE_INPUT_LABEL_COLOR;
-    font-family: OpenSans;
-    font-size: 17px;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
+    &__title {
+      max-width: 100%;
+      color: $ACTIVE_INPUT_LABEL_COLOR;
+      font-family: OpenSans;
+      font-size: 17px;
+      font-weight: 400;
+      font-style: normal;
+      text-align: center;
 
-    @include baikal_limited_title;
-  }
+      @include baikal_limited_title;
+    }
 
-  &__btn {
-    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.12);
-    border-radius: 3px;
-    background-color: #5daaff;
-    @include baikal_medium_btn;
-  }
+    &__btn {
+      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.12);
+      border-radius: 3px;
+      background-color: #5daaff;
+      @include baikal_medium_btn;
+    }
 
-  &__btn_label {
-    font-family: Roboto;
-    font-size: 17px;
-    font-weight: 500;
-    text-align: center;
-    color: #ffffff;
+    &__btn_label {
+      font-family: Roboto;
+      font-size: 17px;
+      font-weight: 500;
+      text-align: center;
+      color: #ffffff;
+    }
   }
 }
 
@@ -45,16 +47,77 @@
   .couche_preview {
     height: auto;
 
-    &__btn_label {
-      font-size: 14px;
+    &__wrapper {
+      &__btn_label {
+        font-size: 14px;
+      }
     }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .couche_preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__wrapper {
+      min-width: 90vw;
+
+      &__icon {
+        height: 9vh;
+        min-height: 60px;
+        max-height: 72px;
+        object-fit: scale-down;
+      }
+
+      .noncontrol_mode_icon {
+        min-height: 88px;
+        height: 17.35vh;
+        max-height: 196px;
+      }
+
+      &__title {
+        width: 100%;
+      }
+
+      .noncontrol_mode_title {
+        text-align: left;
+      }
+
+      &__btn {
+      }
+
+      &__btn_label {
+      }
+    }
+  }
+
+  .noncontrol_mode {
+    background-color: transparent;
+    border: none;
   }
 }
 
 @media screen and (max-width: 320px) {
   .couche_preview {
-    &__btn_label {
-      font-size: 12px;
+    &__wrapper {
+      &__icon {
+        height: 9vh;
+        min-height: 32px;
+        max-height: 42px;
+      }
+
+      .noncontrol_mode_icon {
+        min-height: 82px;
+        height: 12vh;
+        max-height: 96px;
+      }
+
+      &__btn_label {
+        font-size: 12px;
+      }
     }
   }
 }

@@ -8,6 +8,9 @@
     /* Style for "Байкал_лог" */
     width: 163px;
     height: 40px;
+
+    max-width: 100%;
+    object-fit: scale-down;
   }
 
   /* Кнопка связаться*/
@@ -29,6 +32,7 @@
 
 @media screen and (max-width: 991px) {
   .header {
+    margin-left: 0;
     &__contact_btn {
       font-size: 14px;
     }

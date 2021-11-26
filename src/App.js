@@ -29,8 +29,8 @@ function App() {
   return (
     <div className="app">
       <ContextShippingStore>
-        <Header onClickMobileMenuHandler={() => {
-          setIsMobileMenuOpenned(!isMobileMenuOpenned);
+        <Header onClickMobileMenuHandler={(isMobileMenuOpenned) => {
+          setIsMobileMenuOpenned(isMobileMenuOpenned);
         }} />
         {!isMobileMenuOpenned &&
           <Routes>

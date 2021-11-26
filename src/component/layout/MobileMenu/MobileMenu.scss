@@ -5,8 +5,6 @@
   left: -100%;
   top: 0;
 
-  transition: all 2s ease-in-out;
-
   width: 100vw;
   height: 100vh;
   padding-bottom: 30px;
@@ -94,9 +92,17 @@
   left: 0;
 }
 
-@media screen and (max-width: 567px) {
+@media screen and (min-width: 768px) {
   .baikal_mobile_menu {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .baikal_mobile_menu {
+    transition: all 2s ease-in-out;
     &__content {
+      top: 33%;
       &__email {
       }
 

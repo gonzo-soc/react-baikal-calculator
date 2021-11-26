@@ -1,5 +1,7 @@
 .baikal_dl {
-  height: 102px;
+  height: 100px;
+  width: 100%;
+  position: relative;
 
   &__label {
     @include baikal_input_label;
@@ -13,7 +15,6 @@
 
   &__input_wrapper {
     display: flex;
-    position: relative;
     width: 100%;
     background-color: #ffffff;
     box-shadow: 0 4px 40px rgba(0, 0, 0, 0.04);
@@ -46,9 +47,9 @@
 
     &__border {
       width: 2px;
-      height: 47px;
+      margin: 10px 0;
+      height: auto;
       border: 1px solid #dedede;
-      margin: 10px auto;
       margin-right: 0;
     }
   }
@@ -59,6 +60,9 @@
     margin: 0;
     max-height: 20.3vh;
     overflow: auto;
+    position: absolute;
+    z-index: 20;
+    width: 100%;
 
     &__item {
       display: flex;
@@ -100,8 +104,12 @@
   }
 }
 
-.up_end {
+.baikal_dl_up_end {
   transform: rotate(-180deg);
+}
+
+.baikal_dl_active_item {
+  background-color: #b7b7b7;
 }
 
 /* Medium [768; 992) */
@@ -191,12 +199,116 @@
     }
 
     &__content_list {
-      position: absolute;
-      z-index: 20;
-      width: 93%;
+      max-height: 50vh;
       &__item {
         &__text {
           font-size: calc(12px + 1vw);
+        }
+      }
+
+      &__item:last-child {
+      }
+
+      &__item:hover {
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .baikal_dl {
+    &__label {
+      &__active {
+      }
+    }
+
+    &__input_wrapper {
+      &__input_inner_wrapper {
+        &:after {
+        }
+
+        &__input {
+        }
+      }
+
+      &__arow_placeholder {
+        &:hover {
+        }
+      }
+
+      .is_edit {
+        &:after {
+        }
+      }
+
+      .is_open {
+        &:after {
+        }
+      }
+
+      &__border {
+      }
+    }
+
+    &__input_wrapper:nth-child(odd) {
+    }
+
+    &__content_list {
+      &__item {
+        &__text {
+        }
+      }
+
+      &__item:last-child {
+      }
+
+      &__item:hover {
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .baikal_dl {
+    &__label {
+      &__active {
+      }
+    }
+
+    &__input_wrapper {
+      &__input_inner_wrapper {
+        &:after {
+        }
+
+        &__input {
+        }
+      }
+
+      &__arow_placeholder {
+        &:hover {
+        }
+      }
+
+      .is_edit {
+        &:after {
+        }
+      }
+
+      .is_open {
+        &:after {
+        }
+      }
+
+      &__border {
+      }
+    }
+
+    &__input_wrapper:nth-child(odd) {
+    }
+
+    &__content_list {
+      &__item {
+        &__text {
         }
       }
 

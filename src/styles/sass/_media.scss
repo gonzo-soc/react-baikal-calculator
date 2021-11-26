@@ -1,3 +1,16 @@
+@media screen and (max-width: 991) {
+}
+
+@media screen and (max-width: 767px) {
+  .md_flex_mobile_hide {
+    display: none;
+  }
+
+  .md_block_mobile_hide {
+    display: none;
+  }
+}
+
 /* XS [0; 576)*/
 @media screen and (max-width: 575px) {
 }
@@ -8,6 +21,13 @@
 
 /* Medium [768; 992) */
 @media screen and (min-width: 768px) {
+  .md_flex_mobile_hide {
+    display: flex;
+  }
+
+  .md_block_mobile_hide {
+    display: block;
+  }
 }
 
 /* Large [992; 1200) */

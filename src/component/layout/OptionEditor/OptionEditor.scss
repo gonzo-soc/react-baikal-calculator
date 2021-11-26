@@ -1,0 +1,37 @@
+.baikal_option_editor {
+  &__review {
+    &__right_arrow {
+      margin: auto 6px;
+    }
+
+    &__edit {
+      cursor: pointer;
+      margin: auto 10px;
+    }
+  }
+
+  &__edit_row {
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.04);
+    border-radius: 5px;
+    background-color: #ffffff;
+
+    &__control_box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+
+      &__checkmark {
+        cursor: pointer;
+        border-radius: 50%;
+        &:hover {
+          background-color: #eff3f9;
+        }
+      }
+    }
+  }
+}
+
+.baikal_dl_item_height {
+  height: 45px;
+}

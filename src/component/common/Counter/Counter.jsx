@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 
 import "./Counter.scss";
+import classNames from 'classnames';
 
 export default function BaikalCounter(props) {
-  const { label, start } = props;
-  const [count, setCount] = useState(start);
+  const { label, start, isValid } = props;
+  const [count, setCount] = useState(parseInt(start));
+
+  const countClassname = classNames("baikal_counter__panel__score control_box", { 'is_baikal_invalid_input': !isValid });
 
   return (
     <div className="baikal_counter">
@@ -14,7 +17,7 @@ export default function BaikalCounter(props) {
           <div className="col-md-8 col-lg-6">
             <main className="baikal_counter__panel">
               <div className="baikal_counter__panel__minus control_box" onClick={() => setCount((count - 1) < 0 ? 0 : (count - 1))}></div>
-              <div className="baikal_counter__panel__score control_box">{count}</div>
+              <div className={countClassname}>{count}</div>
               <div className="baikal_counter__panel__plus control_box" onClick={() => setCount(count + 1)}></div>
             </main>
           </div>
