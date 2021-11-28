@@ -2,12 +2,24 @@
 }
 
 @media screen and (max-width: 767px) {
+  .mobile_flex_md_hide {
+    display: flex;
+  }
+
+  .mobile_block_md_hide {
+    display: block;
+  }
+
   .md_flex_mobile_hide {
     display: none;
   }
 
   .md_block_mobile_hide {
     display: none;
+  }
+
+  .max-sm-m-auto {
+    margin: auto;
   }
 }
 
@@ -21,6 +33,14 @@
 
 /* Medium [768; 992) */
 @media screen and (min-width: 768px) {
+  .mobile_flex_md_hide {
+    display: none;
+  }
+
+  .mobile_block_md_hide {
+    display: none;
+  }
+
   .md_flex_mobile_hide {
     display: flex;
   }

@@ -8,7 +8,6 @@ class Utility {
     return orientationEvent;
   }
 
-
   static getWindowSize() {
     // debugger;
     ("use strict");
@@ -54,6 +53,10 @@ class Utility {
       }
     }
     return null;
+  }
+
+  static isSmViewport() {
+    return window.matchMedia('(max-width: 767px)').matches;
   }
 }
 

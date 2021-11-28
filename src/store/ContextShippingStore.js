@@ -62,7 +62,6 @@ class ShippingStore {
             info[k] = shippingCoucheInfo[k];
           }
         }
-
       } else {
         console.warn("ShippingStore [edit] Unfound shipping couche info");
       }
@@ -73,10 +72,7 @@ class ShippingStore {
 
   addToShip(shippingCoucheInfo) {
     if (shippingCoucheInfo && shippingCoucheInfo instanceof ShippingCoucheInfo) {
-      const isExist = this.coucheDictData.find((item) => item.id === shippingCoucheInfo.id) !== undefined;
-      if (!isExist) {
-        this.shippingCoucheInfoList.push(shippingCoucheInfo);
-      }
+      this.shippingCoucheInfoList.push(shippingCoucheInfo);
     } else {
       throw new Error("ShippingStore [addToShip] Invalid shipping couche info");
     }

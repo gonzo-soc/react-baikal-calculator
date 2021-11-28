@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 
 import Home from "@/component/page/Home/Home";
-import ShipComposer from "@/component/page/ShipComposer/ShipComposer";
+const ShipComposer = lazy(() => import("@/component/page/ShipComposer/ShipComposer"));
 import Layout from "@/component/layout/Layout";
 import Header from "@/component/layout/Header/Header";
 import ContextShippingStore from "@/store/ContextShippingStore";

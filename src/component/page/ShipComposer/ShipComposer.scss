@@ -1,6 +1,7 @@
 .ship_composer {
   padding-top: 41px;
   padding-bottom: 86px;
+  justify-content: center;
 
   &__search_bar {
     padding-left: 98px;
@@ -300,15 +301,27 @@
     position: relative;
     top: -4vw;
     padding: 0;
+    justify-content: flex-start;
 
     &__back_arrow_ico {
       position: absolute;
-      top: 7vw;
+      z-index: 20;
+      top: 5vw;
       left: 4vw;
       margin: 0;
       padding: 0;
 
       display: block;
+      transition: all 0.5s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateX(-25%);
+      }
+
+      &:active {
+        background-color: $ON_ACTIVE_HOVER_BG_COLOR;
+      }
     }
 
     &__search_bar {
@@ -321,6 +334,7 @@
 
       &__control {
         padding: 0;
+        padding-top: min(max(23px, 3.49vh), 32px);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -338,7 +352,7 @@
     }
     &__editor {
       transition: display 2s ease-in-out;
-      padding-top: 0;
+      padding-top: min(max(10.47vh, 69px), 92px);
       padding-left: 0;
 
       &__content {
@@ -352,6 +366,7 @@
 @media screen and (max-width: 567px) {
   .ship_composer {
     &__back_arrow_ico {
+      top: 7vw;
     }
 
     &__search_bar {

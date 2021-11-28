@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import "./CoucheEditor.scss";
 
 import ShippingContext from "@/store/ShippingContext";
+import Utility from "@/helper/utility";
 import { findCoucheDictItem } from "@/store/data/CoucheDictData";
 
 import CouchePreview from "@/component/layout/CouchePreview/CouchePreview";
@@ -17,7 +18,7 @@ export default function CoucheEditor(props) {
   const coucheDictItem = findCoucheDictItem(id);
 
   const [shipInfo, setShipInfo] = useState({
-    count: 0,
+    count: '',
     size: '',
     netWeight: '',
     grossWeight: '',
@@ -50,11 +51,9 @@ export default function CoucheEditor(props) {
   }
 
   const resetShippingInfo = () => {
-    console.log("CoucheEditor [resetShippingInfo]");
-
     setShipInfo((prevState) => {
-      for (k in prevState) {
-        prevState[k] = 0;
+      for (let k in prevState) {
+        prevState[k] = '';
       }
       return { ...prevState };
     })
@@ -64,22 +63,32 @@ export default function CoucheEditor(props) {
     const { count, size, netWeight, grossWeight, price } = shipInfo;
     if (!count) {
       shipInfoValidator['isCountValid'] = false;
+    } else {
+      shipInfoValidator['isCountValid'] = true;
     }
 
     if (!size || parseFloat(size) === NaN) {
       shipInfoValidator['isSizeValid'] = false;
+    } else {
+      shipInfoValidator['isSizeValid'] = true;
     }
 
     if (!netWeight || parseFloat(netWeight) === NaN) {
       shipInfoValidator['isNetWeightValid'] = false;
+    } else {
+      shipInfoValidator['isNetWeightValid'] = true;
     }
 
     if (!grossWeight || parseFloat(grossWeight) === NaN) {
       shipInfoValidator['isGrossWeightValid'] = false;
+    } else {
+      shipInfoValidator['isGrossWeightValid'] = true;
     }
 
     if (!price || parseFloat(price) === NaN) {
       shipInfoValidator['isPriceValid'] = false;
+    } else {
+      shipInfoValidator['isPriceValid'] = true;
     }
 
     setShipInfoValidator({ ...shipInfoValidator });
@@ -92,11 +101,18 @@ export default function CoucheEditor(props) {
 
   const addShippingInfo = () => {
     console.log("CoucheEditor [addShippingInfo]");
+    debugger;
     if (validate()) {
       // add a new ship info 
       createShipInfoHandler(shipInfo);
     }
   }
+  const countInputClassname = classNames(
+    'couche_editor__input_panel__input mobile_block_md_hide',
+    {
+      'is_baikal_invalid_input': !shipInfoValidator['isCountValid']
+    }
+  );
   const sizeInputClassname = classNames(
     'couche_editor__input_panel__input',
     {
@@ -136,7 +152,7 @@ export default function CoucheEditor(props) {
           additionWrapperClassname="w-full"
           position="top">
           <div className="couche_editor__counter content_panel_sz md_block_mobile_hide">
-            <Counter start={shipInfo['count']} label="Кол-во:" onChangeHandler={(count) => {
+            <Counter count={shipInfo['count'] ? shipInfo['count'] : 0} label="Кол-во:" onChangeHandler={(count) => {
               setShipInfo((prevState) => {
                 return {
                   ...prevState,
@@ -149,7 +165,8 @@ export default function CoucheEditor(props) {
           </div>
         </Tooltip>
         <div className="couche_editor__input_panel content_panel_sz">
-          <Input onChangeHandler={changeInputHandler} value={shipInfo['size']} className={sizeInputClassname} name="size" type="text" placeholder="Объем, м3" required />
+          <Input onChangeHandler={changeInputHandler} value={shipInfo['count']} className={countInputClassname} name="count" type="text" placeholder="Кол-во" isFocus={Utility.isSmViewport()} required />
+          <Input onChangeHandler={changeInputHandler} value={shipInfo['size']} className={sizeInputClassname} name="size" type="text" placeholder="Объем, м3" isFocus={!Utility.isSmViewport()} required />
           <Input onChangeHandler={changeInputHandler} value={shipInfo['netWeight']} className={netWeightInputClassname} name="netWeight" type="text" placeholder="Общая масса нетто, кг" required />
           <Input onChangeHandler={changeInputHandler} value={shipInfo['grossWeight']} className={grossWeightInputClassname} name="grossWeight" type="text" placeholder="Общая масса брутто, кг" required />
           <Input onChangeHandler={changeInputHandler} value={shipInfo['price']} className={priceInputClassname} name="price" type="text" placeholder="Стоимость одной единицы" required />
@@ -162,16 +179,16 @@ export default function CoucheEditor(props) {
           <div className="couche_editor__btn_panel content_panel_sz">
             <div className="couche_editor__btn_panel__btn_wrapper">
               <Button label="Сбросить"
-                onClickHandle={resetShippingInfo}
-                onClickHandleArg={{}}
+                onClickHandler={resetShippingInfo}
+                onClickHandlerArg={{}}
                 additionClassname="couche_editor__btn">
                 <span className="couche_editor__btn_label">Сбросить</span>
               </Button>
             </div>
             <div className="couche_editor__btn_panel__btn_wrapper">
               <Button label="Добавить"
-                onClickHandle={addShippingInfo}
-                onClickHandleArg={{}}
+                onClickHandler={addShippingInfo}
+                onClickHandlerArg={{}}
                 additionClassname="couche_editor__btn">
                 <span className="couche_editor__btn_label">Добавить</span>
               </Button>

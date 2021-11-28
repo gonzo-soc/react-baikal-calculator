@@ -1,24 +1,25 @@
 import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { observer } from 'mobx-react';
-import className from "classnames";
 
 import "./ShipComposer.scss";
 
 import ShippingContext from "@/store/ShippingContext";
 import { getCoucheDictData } from "@/store/data/CoucheDictData";
 import { findCoucheDictItem } from "@/store/data/CoucheDictData";
+import ShippingCoucheInfo from "@/store/domain/ShippingCoucheInfo";
 
 import SearchBar from "@/component/common/SearchBar/SearchBar";
 import CouchePreview from "@/component/layout/CouchePreview/CouchePreview";
-import CoucheEditor from "@/component/layout/CoucheEditor/CoucheEditor";
+const CoucheEditor = lazy(() => import("@/component/layout/CoucheEditor/CoucheEditor"));
 import Tooltip from "@/component/common/Tooltip/Tooltip";
 
 import backArrowSvgIco from "@/styles/images/icons/ship_composer/back_arrow.svg";
 import classNames from 'classnames';
 
 const ShipComposer = observer(() => {
-
   const store = useContext(ShippingContext);
+  const navigate = useNavigate();
 
   const [couchePreviewList, setCouchePreviewList] = useState(getCoucheDictData());
   const [selectedCouchePreview, setSelectedCouchePreview] = useState(null);
@@ -37,8 +38,15 @@ const ShipComposer = observer(() => {
 
   const createShipInfoItem = (shipInfo) => {
     const { count, size, netWeight, grossWeight, price } = shipInfo;
-    const id = selectedCouchePreview[id];
-
+    const coucheId = selectedCouchePreview['id'];
+    store.addToShip(new ShippingCoucheInfo({
+      coucheId,
+      size,
+      netWeight,
+      grossWeight,
+      price,
+      count
+    }))
   }
 
   const getCouchePreviewList = () => {
@@ -61,15 +69,32 @@ const ShipComposer = observer(() => {
   };
 
   const getFilteredCouchePreviewList = (searchCriteria) => {
+    if (!searchCriteria) {
+      return getCoucheDictData();
+    }
     return getCoucheDictData().filter((couche) => {
       const searchCriteriaRegExp = new RegExp('^(' + searchCriteria + '.*)$', 'gi');
       return couche.title.match(searchCriteriaRegExp) !== null;
     });
   }
 
+  const onBackArrowClickHandler = (event) => {
+    console.log("Back");
+    debugger;
+    if (selectedCouchePreview) {
+      setSelectedCouchePreview(null);
+    } else {
+      navigate(-1);
+    }
+  }
+
   return (
-    <main className="ship_composer baikal_main_content">
-      <img src={backArrowSvgIco} alt="Ship composer: back arrow icon" className="ship_composer__back_arrow_ico" />
+    <main className="baikal_main_content ship_composer">
+      <img src={backArrowSvgIco}
+        alt="Ship composer: back arrow icon"
+        className="ship_composer__back_arrow_ico"
+        onClick={onBackArrowClickHandler}
+      />
       <div className="container-fluid">
         <div className="row">
           <div className="col-12 col-md-6 col-xl-5 offset-xl-1 pl-md-0">
@@ -78,6 +103,7 @@ const ShipComposer = observer(() => {
                 Выберите мебель, которую нужно перевезти
               </h2>
               <Tooltip content='Теперь ваши параметры выведены сверху, нажмите на них, чтобы  внести изменения'
+                additionWrapperClassname="w-full"
                 additionContentClassname="baikal_maxw_reset"
                 position="right">
                 <div className="ship_composer__search_bar__control">

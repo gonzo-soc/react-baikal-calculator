@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 import Button from "@/component/common/Button/Button";
+import Utility from "@/helper/utility";
 
 import "./SearchBar.scss";
 
@@ -19,13 +20,18 @@ export default function SearchBar(props) {
     <div className="baikal_search_bar">
       <input name="baikal_search_bar__input" ref={inputRef} className="baikal_search_bar__input" type="text" placeholder="Введите название" value={searchCriteria} onChange={
         (event) => {
-          setSearchCriteria(event.target.value);
+          const newSearchCriteria = event.target.value;
+          setSearchCriteria(newSearchCriteria);
+          // mediaquery width less or equal to 767px
+          if (Utility.isSmViewport()) {
+            searchCriteriaSubmitHandler(newSearchCriteria);
+          }
         }
       } />
       <div className="col-md-3 px-0 md_block_mobile_hide">
         <div className="baikal_search_bar__control">
           <Button
-            onClickHandle={
+            onClickHandler={
               () => {
                 searchCriteriaSubmitHandler(searchCriteria);
               }

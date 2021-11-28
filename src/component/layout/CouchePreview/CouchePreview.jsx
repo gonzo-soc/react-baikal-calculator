@@ -27,8 +27,8 @@ export default function CouchePreview(props) {
           isControl ?
             <div className="col-4 col-md-4 col-lg-4 d-flex flex-column justify-content-center align-items-center">
               <Button
-                onClickHandle={selectCouchePreviewCallback}
-                onClickHandleArg={{ id }}
+                onClickHandler={selectCouchePreviewCallback}
+                onClickHandlerArg={{ id }}
                 additionClassname="couche_preview__wrapper__btn">
                 <span className="couche_preview__wrapper__btn_label">Выбрать</span>
               </Button>

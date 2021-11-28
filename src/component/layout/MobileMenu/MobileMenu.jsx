@@ -17,8 +17,8 @@ export default function MobileMenu(props) {
       <h2 className="baikal_mobile_menu__content__email">asia@baikalvl.ru</h2>
       <h2 className="baikal_mobile_menu__content__phone">8 800 201-87-77</h2>
       <Button
-        onClickHandle={() => { console.info("MobileMenu ContactButton [onClickHandle]") }}
-        onClickHandleArg={{}}
+        onClickHandler={() => { console.info("MobileMenu ContactButton [onClickHandler]") }}
+        onClickHandlerArg={{}}
         additionClassname="baikal_mobile_menu__content__contact_btn">
         <span className="baikal_mobile_menu__content__contact_btn__label">Связаться</span>
       </Button>

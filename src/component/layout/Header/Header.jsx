@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 import "./Header.scss";
@@ -11,18 +11,17 @@ import Utility from "@/helper/utility.js";
 export default function Header(props) {
   const { onClickMobileMenuHandler } = props;
   const [isMobileMenuOpenned, setIsMobileMenuOpenned] = useState(false);
-  const [windowSize, setWindowSize] = useState(Utility.getWindowSize());
 
-  // We have to use the reference to get the lattest state from the lisetener.
+  // We have to use the reference to store mutable state and get it from the lisetener.
   // see @link https://medium.com/geographit/accessing-react-state-in-event-listeners-with-usestate-and-useref-hooks-8cceee73c559
-  const windowSizeRef = useRef(windowSize);
-
+  const windowSizeRef = useRef(Utility.getWindowSize());
   const orinetationChangeHandler = () => {
-    const newWindowSize = Utility.getWindowSize()['wWidth'];
+    debugger;
+    const newWindowSize = Utility.getWindowSize();
     if (newWindowSize['wWidth'] !== windowSizeRef.current['wWidth']) {
       setIsMobileMenuOpenned(false);
       onClickMobileMenuHandler(false);
-      setWindowSize(newWindowSize);
+      windowSizeRef.current = newWindowSize;
     }
   }
 
@@ -65,7 +64,9 @@ export default function Header(props) {
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-2">
-            <img src={baikalLogo} alt="Baikal ico" className={logoClassname} />
+            <Link to="/">
+              <img src={baikalLogo} alt="Baikal ico" className={logoClassname} />
+            </Link>
           </div>
 
           {isShipComposerUrlActive() &&

@@ -5,6 +5,8 @@
   max-width: 792px;
   margin-left: 97px;
   padding-top: 47px;
+  justify-content: center;
+
   &__rate {
     &__input {
       @include baikal_input_decor;
@@ -116,6 +118,8 @@
 
     &__control {
       margin-top: 3.65vh;
+      margin-left: 0;
+      margin-right: 0;
       &__btn {
         margin: auto;
         width: 100%;
@@ -132,6 +136,7 @@
   .baikal_option_bar {
     padding-bottom: 4vh;
     &__control {
+      width: 100%;
       &__btn {
         width: 100%;
       }

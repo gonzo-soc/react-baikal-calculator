@@ -62,10 +62,10 @@ const OptionBar = observer(() => {
                     dictItemList={getCityList()}
                     selectedItem={optionBarState.from}
                     attributeChangeHandler={(value) => {
-                      debugger;
                       optionBarState.setFrom = value
                     }}
-                    isInvalid={isFromInvalid} />
+                    isInvalid={isFromInvalid}
+                    isFocus={true} />
                 </div>
                 <div className="col-12 col-sm-6 col-md-3 px-md-0">
                   <DataList label={attributeNameDict['to']}
@@ -92,7 +92,7 @@ const OptionBar = observer(() => {
               </section>
             </Tooltip>
           </div>
-          <div className="col-sm-11 col-md-3 px-0 d-flex flex-column justify-content-end">
+          <div className="col-sm-11 col-md-3 px-0 max-sm-m-auto d-flex flex-column justify-content-end">
 
             <div className="baikal_option_bar__control">
               <Tooltip content='Теперь нажмите на кнопку "Далее"'
@@ -100,7 +100,7 @@ const OptionBar = observer(() => {
                 additionTargetClassname="m-sm-auto"
                 position="top">
                 <Button
-                  onClickHandle={() => handleNextButtonClick()}
+                  onClickHandler={() => handleNextButtonClick()}
                   additionClassname="baikal_option_bar__control__btn">
                   <div className="baikal_option_bar__control__btn__text">
                     <span>Далее</span>

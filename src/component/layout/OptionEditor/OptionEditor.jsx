@@ -79,7 +79,8 @@ const OptionEditor = observer(() => {
                   attributeChangeHandler={(value) => { setFrom(value) }}
                   isInvalid={isFromInvalid}
                   listItemClass="baikal_dl_item_height"
-                  inputClass="baikal_dl_item_height" />
+                  inputClass="baikal_dl_item_height"
+                  isFocus={true} />
               </div>
               <div className="col-md-3 px-md-0">
                 <DataList dictItemList={getCityList()}

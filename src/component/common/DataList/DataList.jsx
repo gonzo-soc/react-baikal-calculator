@@ -7,9 +7,12 @@ import classNames from 'classnames';
 import Utility from "@/helper/utility";
 
 export default class DataList extends Component {
-  constructor(props) {
+  constructor({
+    label, dictItemList,
+    selectedItem, attributeChangeHandler,
+    isInvalid, listItemClass, inputClass, isFocus, ...attrs
+  }) {
     super();
-    const { selectedItem } = props;
     this.state = {
       selectedItem: selectedItem,
       showItemList: [],
@@ -186,11 +189,20 @@ export default class DataList extends Component {
     }
   }
 
+  componentDidMount() {
+    if (this.props.isFocus) {
+      this.inputRef.current.focus();
+    }
+  }
+
   render() {
     const { isEditing, id } = this.state;
-    const { label, isInvalid, wrapperClass, inputClass } = this.props;
+    const {
+      label, dictItemList,
+      selectedItem, attributeChangeHandler,
+      isInvalid, listItemClass, inputClass, isFocus, ...attrs
+    } = this.props;
 
-    const wrapperClassname = classNames("baikal_dl", wrapperClass);
     const inputClassname = classNames("baikal_dl__input_wrapper__input_inner_wrapper__input", inputClass);
     const inputWrapperClassname = classNames('baikal_dl__input_wrapper', { 'is_baikal_invalid_input': isInvalid });
     const inputLabelClassname = classNames("baikal_dl__label",
@@ -205,7 +217,7 @@ export default class DataList extends Component {
       });
 
     return (
-      <div className={wrapperClassname}>
+      <div className="baikal_dl">
         {label && <label htmlFor={id}
           onClick={this.onLabelClickHandler}
           className={inputLabelClassname}>{this.props.label}</label>}
@@ -219,7 +231,9 @@ export default class DataList extends Component {
               type="text" onChange={this.onChangeHandler}
               onKeyDown={this.onKeyPressHandler}
               onBlur={this.onBlurHandler}
-              value={this.state.selectedItem['title']} />
+              value={this.state.selectedItem['title']}
+              {...attrs}
+            />
 
             <img src={downArrowSvg} alt="Down Arrow"
               className={selectArrowClassname}
