@@ -11,7 +11,7 @@ import ShippingCoucheInfo from "@/store/domain/ShippingCoucheInfo";
 
 import SearchBar from "@/component/common/SearchBar/SearchBar";
 import CouchePreview from "@/component/layout/CouchePreview/CouchePreview";
-const CoucheEditor = lazy(() => import("@/component/layout/CoucheEditor/CoucheEditor"));
+import CoucheEditor from "@/component/layout/CoucheEditor/CoucheEditor";
 import Tooltip from "@/component/common/Tooltip/Tooltip";
 
 import backArrowSvgIco from "@/styles/images/icons/ship_composer/back_arrow.svg";
