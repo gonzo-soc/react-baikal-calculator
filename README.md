@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was built with use of `gulp` in conjuction to `webpack`
+This project was built with use of `gulp` and `webpack` mainly
 
 ## Available Scripts
 
@@ -19,5 +19,11 @@ You will also see any lint errors in the console.
 Builds the app for production to the `public/dist` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### `demo`
+## Demo
 To run the demo follow the link: https://calc-taptima.voodoopages.net
+
+## Installation
+Clone the project: `git clone https://github.com/gonzo-soc/react-baikal-calculator && cd ./react-baikal-calculator`\
+Install gulp to run it from the command line: `npm -g install gulp`\
+Then install the project dependencies: `npm install`\
+Finally: `gulp dev-watch`
