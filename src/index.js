@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 
 import "@/styles/sass/index.scss";
-// import "@/styles/css/social-icons.css";
 
 if (!window._) {
   window._ = require('lodash');

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import "./Home.scss";
 import OptionBar from "@/component/layout/OptionBar/OptionBar";
 import backgroundIllustrationSvg from "@/styles/images/background-images/home-pg/home-illustration-bg.svg";

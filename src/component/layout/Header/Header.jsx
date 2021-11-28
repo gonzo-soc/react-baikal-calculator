@@ -16,7 +16,6 @@ export default function Header(props) {
   // see @link https://medium.com/geographit/accessing-react-state-in-event-listeners-with-usestate-and-useref-hooks-8cceee73c559
   const windowSizeRef = useRef(Utility.getWindowSize());
   const orinetationChangeHandler = () => {
-    debugger;
     const newWindowSize = Utility.getWindowSize();
     if (newWindowSize['wWidth'] !== windowSizeRef.current['wWidth']) {
       setIsMobileMenuOpenned(false);

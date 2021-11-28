@@ -100,8 +100,6 @@ export default function CoucheEditor(props) {
   }
 
   const addShippingInfo = () => {
-    console.log("CoucheEditor [addShippingInfo]");
-    debugger;
     if (validate()) {
       // add a new ship info 
       createShipInfoHandler(shipInfo);

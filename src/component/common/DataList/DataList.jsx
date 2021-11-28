@@ -29,7 +29,7 @@ export default class DataList extends Component {
   }
 
   onChangeHandler(event) {
-    console.log("DataList [onChangeHandler]")
+    // console.log("DataList [onChangeHandler]")
     const dummySelected = {
       id: -1,
       title: '',
@@ -61,7 +61,7 @@ export default class DataList extends Component {
   onBlurHandler(event) {
     const blurType = event.nativeEvent.type;
     if (blurType === "focusout") {
-      console.log("DataList [onBlurHandler] focusout")
+      // console.log("DataList [onBlurHandler] focusout")
       const itemFragment = event.target.value;
       let newSelectedItem = this.props.dictItemList[0];
       if (itemFragment.length > 0) {
@@ -85,7 +85,7 @@ export default class DataList extends Component {
 
   onItemMouseDownHandler(event) {
     // event is capture on <li><span>...
-    console.log("DataList [onItemMouseDownHandler]")
+    // console.log("DataList [onItemMouseDownHandler]")
     let newSelectedItemValue = event.target.innerHTML;
 
     // event is captured on <li>
@@ -110,7 +110,7 @@ export default class DataList extends Component {
   }
 
   onLabelClickHandler(event) {
-    console.log("DataList [onLabelClickHandler]")
+    // console.log("DataList [onLabelClickHandler]")
     const newShowItemList = this.props.dictItemList.slice(0, this.props.dictItemList.length);
     this.setState((prevState) => {
       if (!prevState.isEditing) {
@@ -131,7 +131,7 @@ export default class DataList extends Component {
   }
 
   onKeyPressHandler(event) {
-    console.log("DataList [onKeyPressHandler] charCode " + event.charCode);
+    // console.log("DataList [onKeyPressHandler] charCode " + event.charCode);
     const newShowItemList = this.props.dictItemList.slice(0, this.props.dictItemList.length);
     let newSelectedItem = this.state.selectedItem;
     switch (event.keyCode) {
@@ -162,7 +162,7 @@ export default class DataList extends Component {
   }
 
   getShowItemList() {
-    console.log("DataList [getShowItemList]")
+    // console.log("DataList [getShowItemList]")
     const { showItemList, isEditing } = this.state;
 
     if (!isEditing) {

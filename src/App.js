@@ -4,7 +4,6 @@ import React, {
 import {
   Routes,
   Route,
-  useLocation,
 } from "react-router-dom";
 
 import Home from "@/component/page/Home/Home";
@@ -14,17 +13,6 @@ import Header from "@/component/layout/Header/Header";
 import ContextShippingStore from "@/store/ContextShippingStore";
 
 function App() {
-  const location = useLocation();
-  const isHomeUrlActive = () => {
-    const homeFilterPage = /^(\/)$|^(\/home)$/g;
-    if (homeFilterPage.test(location.pathname)) {
-      console.log('Location changed: home page');
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   const [isMobileMenuOpenned, setIsMobileMenuOpenned] = useState(false);
   return (
     <div className="app">
