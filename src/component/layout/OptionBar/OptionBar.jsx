@@ -61,21 +61,24 @@ const OptionBar = observer(() => {
                   <DataList label={attributeNameDict['from']}
                     dictItemList={getCityList()}
                     selectedItem={optionBarState.from}
-                    attributeChangeHandler={(value) => { optionBarState.changeFrom(value) }}
+                    attributeChangeHandler={(value) => {
+                      debugger;
+                      optionBarState.setFrom = value
+                    }}
                     isInvalid={isFromInvalid} />
                 </div>
                 <div className="col-12 col-sm-6 col-md-3 px-md-0">
                   <DataList label={attributeNameDict['to']}
                     dictItemList={getCityList()}
                     selectedItem={optionBarState.to}
-                    attributeChangeHandler={(value) => { optionBarState.changeTo(value) }}
+                    attributeChangeHandler={(value) => { optionBarState.setTo = value }}
                     isInvalid={isToInvalid} />
                 </div>
                 <div className="col-12 col-sm-6 col-md-3 px-md-0">
                   <DataList label={attributeNameDict['currency']}
                     dictItemList={getCurrencyList()}
                     selectedItem={optionBarState.currency}
-                    attributeChangeHandler={(value) => { optionBarState.changeCurrency(value) }}
+                    attributeChangeHandler={(value) => { optionBarState.setCurrency = value }}
                     isInvalid={isCurrencyInvalid} />
                 </div>
                 <div className="col-12 col-sm-6 col-md-3 px-md-0">
@@ -101,7 +104,7 @@ const OptionBar = observer(() => {
                   additionClassname="baikal_option_bar__control__btn">
                   <div className="baikal_option_bar__control__btn__text">
                     <span>Далее</span>
-                    <img src={rightArrowIcon} alt="Right arrow" className="baikal_option_bar__control__btn__text__right_arrow" />
+                    <img src={rightArrowIcon} alt="Right arrow" className="baikal_option_bar__control__btn__text__right_arrow is_right_move" />
                   </div>
                 </Button>
               </Tooltip>

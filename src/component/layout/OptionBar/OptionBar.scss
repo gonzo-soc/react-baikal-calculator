@@ -51,6 +51,17 @@
         }
       }
     }
+
+    &__btn:hover {
+      .is_right_move {
+        transform: translateX(50%);
+      }
+    }
+  }
+
+  .is_right_move {
+    position: relative;
+    transition: all 0.5s ease-in-out;
   }
 }
 

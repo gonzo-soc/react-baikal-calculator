@@ -20,6 +20,10 @@ const OptionEditor = observer(() => {
   const [isToInvalid, setIsToInvalid] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
+  const [from, setFrom] = useState(optionBarState.from);
+  const [to, setTo] = useState(optionBarState.to);
+  const [currency, setCurrency] = useState(optionBarState.currency);
+
   const getParameterHeader = () => {
     return (
       <span className="baikal_option_editor__review">
@@ -33,12 +37,14 @@ const OptionEditor = observer(() => {
   }
 
   const validateFrom = () => {
-    setIsFromInvalid(optionBarState.isFromInvalid)
-    return !optionBarState.isFromInvalid;
+    const isValid = from && from !== to;
+    setIsFromInvalid(!isValid);
+    return isValid;
   }
   const validateTo = () => {
-    setIsToInvalid(optionBarState.isToInvalid)
-    return !optionBarState.isToInvalid;
+    const isValid = from && from !== to;
+    setIsToInvalid(!isValid);
+    return isValid;
   }
 
   const validate = () => {
@@ -49,16 +55,15 @@ const OptionEditor = observer(() => {
 
   const saveChangeHandler = () => {
     if (validate()) {
+      optionBarState.setFrom = from;
+      optionBarState.setTo = to;
+      optionBarState.setCurrency = currency;
       setIsEditing(false);
     }
   }
 
   const editHandler = () => {
     setIsEditing(true);
-  }
-
-  const onArrowClickHandler = () => {
-
   }
 
   return (
@@ -71,8 +76,7 @@ const OptionEditor = observer(() => {
               <div className="col-md-3 px-md-0">
                 <DataList dictItemList={getCityList()}
                   selectedItem={optionBarState.from}
-                  attributeChangeHandler={(value) => { optionBarState.changeFrom(value) }}
-                  arrowClickHandler={onArrowClickHandler}
+                  attributeChangeHandler={(value) => { setFrom(value) }}
                   isInvalid={isFromInvalid}
                   listItemClass="baikal_dl_item_height"
                   inputClass="baikal_dl_item_height" />
@@ -80,7 +84,7 @@ const OptionEditor = observer(() => {
               <div className="col-md-3 px-md-0">
                 <DataList dictItemList={getCityList()}
                   selectedItem={optionBarState.to}
-                  attributeChangeHandler={(value) => { optionBarState.changeTo(value) }}
+                  attributeChangeHandler={(value) => { setTo(value) }}
                   isInvalid={isToInvalid}
                   listItemClass="baikal_dl_item_height"
                   inputClass="baikal_dl_item_height" />
@@ -88,7 +92,7 @@ const OptionEditor = observer(() => {
               <div className="col-md-3 px-md-0">
                 <DataList dictItemList={getCurrencyList()}
                   selectedItem={optionBarState.currency}
-                  attributeChangeHandler={(value) => { optionBarState.changeCurrency(value) }}
+                  attributeChangeHandler={(value) => { setCurrency(value) }}
                   listItemClass="baikal_dl_item_height"
                   inputClass="baikal_dl_item_height" />
               </div>

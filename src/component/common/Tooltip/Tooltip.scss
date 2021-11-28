@@ -1,20 +1,22 @@
 .baikal_tooltip {
   position: relative;
   display: inline-block;
+  cursor: pointer;
 
   &__content_box {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-evenly;
+    align-items: stretch;
     width: 22.85vw;
     min-width: 280px;
-    max-width: 486px;
+    max-width: 500px;
     height: auto;
     box-sizing: border-box;
     z-index: 9999;
 
     position: absolute;
-    padding: 20px;
+    min-height: 55px;
+    max-height: 96px;
     border-radius: 3px;
     overflow: hidden;
     background-color: #ffffff;
@@ -22,38 +24,52 @@
     box-shadow: 0 4px 40px rgba(93, 170, 255, 0.1);
     border-radius: 3px;
 
-    &__text {
-      color: $BLUE_TOOLTIP_COLOR;
-      font-family: OpenSans;
-      font-size: 15px;
-      font-weight: 600;
-      font-style: normal;
-      text-align: center;
-      @include baikal_limited_2line_title;
-    }
+    &__view {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
 
-    &__arrow {
-      padding-left: 1rem;
-      position: relative;
-      cursor: pointer;
-      transition: all 0.5s ease-in-out;
-    }
+      &__text {
+        color: $BLUE_TOOLTIP_COLOR;
+        font-family: OpenSans;
+        font-size: 15px;
+        font-weight: 600;
+        font-style: normal;
+        text-align: center;
+        @include baikal_limited_2line_title;
 
-    .left_arrow {
-      padding-left: 0;
-      padding-right: 1rem;
+        padding-left: 23px;
+        padding-right: 23px;
+      }
+
+      &__arrow_box {
+        &__arrow {
+          position: relative;
+          transition: all 0.5s ease-in-out;
+        }
+      }
     }
 
     &__cross {
       transition: all 0.5s ease-in-out;
-      padding-left: 0;
-      margin-left: 1rem;
+      align-self: center;
+      margin-left: 10px;
+      margin-right: 10px;
       cursor: pointer;
       border: none;
       &:hover {
         background-color: $INPUT_LABEL_COLOR;
       }
     }
+  }
+
+  .left_arrow {
+    padding-left: 32px;
+  }
+
+  .right_arrow {
+    padding-right: 32px;
   }
 
   &__target {
@@ -79,30 +95,27 @@
     right: calc(100% + 48px);
     bottom: 0%;
   }
-}
 
-.up_arrow {
-  transition: all 2s ease-in-out;
   &:hover {
-    transform: translateY(-50%);
-  }
-}
+    .up_arrow {
+      transition: all 0.5s ease-in-out;
+      transform: translateY(-25%);
+    }
 
-.down_arrow {
-  &:hover {
-    transform: translateY(50%);
-  }
-}
+    .down_arrow {
+      transition: all 0.5s ease-in-out;
+      transform: translateY(25%);
+    }
 
-.left_arrow {
-  &:hover {
-    transform: translateX(-50%);
-  }
-}
+    .left_arrow {
+      transition: all 0.5s ease-in-out;
+      transform: translateX(-25%);
+    }
 
-.right_arrow {
-  &:hover {
-    transform: translateX(50%);
+    .right_arrow {
+      transition: all 0.5s ease-in-out;
+      transform: translateX(25%);
+    }
   }
 }
 

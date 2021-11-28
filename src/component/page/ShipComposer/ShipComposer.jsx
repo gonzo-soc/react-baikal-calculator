@@ -78,7 +78,7 @@ const ShipComposer = observer(() => {
                 Выберите мебель, которую нужно перевезти
               </h2>
               <Tooltip content='Теперь ваши параметры выведены сверху, нажмите на них, чтобы  внести изменения'
-                additionWrapperClassname="w-full"
+                additionContentClassname="baikal_maxw_reset"
                 position="right">
                 <div className="ship_composer__search_bar__control">
                   <SearchBar searchCriteriaSubmitHandler={

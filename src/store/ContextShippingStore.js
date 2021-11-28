@@ -94,9 +94,11 @@ class ShippingStore {
   }
 }
 
+const baikalShippingStore = new ShippingStore();
+
 const ContextShippingStore = ({ children }) => {
   return (
-    <ShippingContext.Provider value={new ShippingStore()}>{children}</ShippingContext.Provider>
+    <ShippingContext.Provider value={baikalShippingStore}>{children}</ShippingContext.Provider>
   );
 };
 

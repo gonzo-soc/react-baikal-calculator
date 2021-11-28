@@ -45,7 +45,7 @@ export default function Header(props) {
 
   const location = useLocation();
   const isShipComposerUrlActive = () => {
-    const shipComposerFilter = /^(\/composer)$/g;
+    const shipComposerFilter = /^(.*\/composer)$/g;
     if (shipComposerFilter.test(location.pathname)) {
       console.log('Location changed: home page');
       return true;
@@ -57,6 +57,8 @@ export default function Header(props) {
   const headerClassname = classNames("header", { 'header_if_mobile_menu_active': isMobileMenuOpenned });
   const hamburgerClassname = classNames("hamburger", { 'hamburger_is_active': isMobileMenuOpenned });
   const logoClassname = classNames("header__logo", { 'if_path_ship_composer': isShipComposerUrlActive });
+  const contactBtnBoxClassname = classNames("d-flex flex-column justify-content-center", { "offset-md-1 ": isShipComposerUrlActive() },
+    { "offset-md-8": !isShipComposerUrlActive() });
 
   return (
     <header className={headerClassname}>
@@ -66,13 +68,13 @@ export default function Header(props) {
             <img src={baikalLogo} alt="Baikal ico" className={logoClassname} />
           </div>
 
-          {isShipComposerUrlActive &&
+          {isShipComposerUrlActive() &&
             <div className="col-md-7 md_flex_mobile_hide align-items-center">
               <OptionEditor />
             </div>
           }
 
-          <div className="col-md-2 offset-md-1 d-flex flex-column justify-content-center">
+          <div className={contactBtnBoxClassname}>
             <button className="header__contact_btn">Связаться</button>
           </div>
         </div>

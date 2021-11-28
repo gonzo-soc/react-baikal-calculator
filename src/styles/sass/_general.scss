@@ -56,14 +56,22 @@
   overflow: auto;
 }
 
-@media screen and (min-height: 1024px) {
+.baikal_maxw_reset {
+  max-width: unset;
+}
+
+.baikal_maxh_reset {
+  max-height: unset;
+}
+
+@media screen and (min-height: 1025px) {
   .baikal_main_content {
-    max-height: 90vh;
+    max-height: 85vh;
     min-height: unset;
   }
 }
 
-@media screen and (max-height: 720px) and (orientation: landscape) {
+@media screen and (max-height: 1024px) {
   .baikal_main_content {
     max-height: unset;
     height: auto;

@@ -157,6 +157,7 @@ export default function CoucheEditor(props) {
 
         <Tooltip content='Здесь вы можете сбросить параметры и добавить элемент'
           additionWrapperClassname="w-full"
+          additionContentClassname="baikal_maxw_reset"
           position="left">
           <div className="couche_editor__btn_panel content_panel_sz">
             <div className="couche_editor__btn_panel__btn_wrapper">
