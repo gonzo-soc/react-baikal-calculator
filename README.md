@@ -23,4 +23,4 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 ### `demo`
-To launch demo launch the following link: https://calc-taptima.voodoopages.net
+To run the demo follow the link: https://calc-taptima.voodoopages.net
