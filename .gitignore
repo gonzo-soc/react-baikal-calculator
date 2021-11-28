@@ -6,7 +6,7 @@
 # /coverage
 
 # production
-# /public
+/public
 
 # misc
 .env
